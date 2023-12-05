@@ -2,7 +2,7 @@
 
 # E-Commerce Android App
 
-## Introduction
+### Introduction
 
 Welcome to the E-Commerce Android App repository! This mobile application, developed with Android Studio using Java, integrates Firebase Storage and Firebase Realtime Database to offer a comprehensive and seamless e-commerce experience. This app incorporates all fundamental functionalities essential for a modern and efficient online shopping platform.
 
