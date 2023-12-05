@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "508002965068",
+    "project_id": "ecommerceappproject-c309a",
+    "storage_bucket": "ecommerceappproject-c309a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508002965068:android:26fea70e6a2bc9119346e9",
+        "android_client_info": {
+          "package_name": "com.sarmadali.ecommerceappproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDLAEqRIEswxCOYtQlQ0r4oStse3tY1SY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

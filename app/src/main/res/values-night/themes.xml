@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.EcommerceAppProject" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <style name="Theme.EcommerceAppProject" parent="Base.Theme.EcommerceAppProject">
+        <!--    we can change color of status bar -->
+        <item name="android:statusBarColor">
+            @color/statusbar
+        </item>
+    </style>
+
+</resources>

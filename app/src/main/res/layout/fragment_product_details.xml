@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D5DADA"
+    tools:context=".ui.ProductDetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/productImg"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#9F9C9C"
+        android:contentDescription="@string/todo12"
+        android:scaleType="fitCenter"
+        android:src="@drawable/placeholder" />
+
+    <TextView
+        android:id="@+id/ProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="monospace"
+        android:padding="3dp"
+        android:text="@string/textview"
+        android:textColor="@color/statusbar"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/productPricedetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/archivo_black"
+        android:padding="3dp"
+        android:text="@string/textview1212"
+        android:textColor="#E8DF821E"
+        android:textSize="20sp"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/descriptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="serif"
+        android:padding="3dp"
+        android:text="@string/product_descriptionqwaas"
+        android:textColor="@color/statusbar"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detailDescription"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
+        android:padding="3dp"
+        android:text="@string/textviewadetail"
+        android:textColor="#4F5380"
+        android:textSize="14sp"
+        android:scrollbars="vertical"
+        tools:ignore="TextContrastCheck" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:layout_marginStart="3dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/decrementButton"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#E3E0E0"
+                        android:text="@string/minus"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:ignore="NestedWeights,TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/counterTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#E3E0E0"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:text="@string/_01"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:ignore="TextViewEdits,TouchTargetSizeCheck" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/incrementButton"
+                        android:layout_width="22dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#E3E0E0"
+                        android:text="@string/add"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonCart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8BDF821E"
+        android:text="@string/add_to_cart"
+        android:textAllCaps="false"
+        android:layout_weight="2"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/white"
+        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Admin.UploadProducts">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        tools:ignore="UselessLeaf">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Product Name"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#6A6360"
+                tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/productCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/product_category"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#6A6360"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/productDesrciption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="top|start"
+                android:hint="@string/product_description"
+                android:inputType="textMultiLine"
+                android:lines="10"
+                android:minHeight="48dp"
+                android:paddingLeft="5dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/black"
+                android:textColorHint="#6A6360"
+                android:textSize="18sp"
+                tools:ignore="Autofill,RtlHardcoded,RtlSymmetry,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/productPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/product_price"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="#6A6360"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+            <ImageView
+                android:id="@+id/uploadImage"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitXY"
+                android:textAlignment="center"
+                app:srcCompat="@drawable/top_background"
+                tools:ignore="ContentDescription,ImageContrastCheck"></ImageView>
+
+            <Button
+                android:id="@+id/addProductBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_product"
+                tools:ignore="VisualLintButtonSize" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+package com.sarmadali.ecommerceappproject.Models;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+public class ProductDetails implements Parcelable {
+    String productImageName, productImageUri;
+    String productName, productCategory, productDescription, productPrice;
+
+    //empty constructor
+    public ProductDetails() {
+    }
+
+    //constructor for all
+    public ProductDetails(String productImageName, String productImageUri, String productName, String productCategory, String productDescription, String productPrice) {
+        this.productImageName = productImageName;
+        this.productImageUri = productImageUri;
+        this.productName = productName;
+        this.productCategory = productCategory;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+    }
+
+
+    //getter and setter
+
+    protected ProductDetails(Parcel in) {
+        productImageName = in.readString();
+        productImageUri = in.readString();
+        productName = in.readString();
+        productCategory = in.readString();
+        productDescription = in.readString();
+        productPrice = in.readString();
+    }
+
+    public static final Creator<ProductDetails> CREATOR = new Creator<ProductDetails>() {
+        @Override
+        public ProductDetails createFromParcel(Parcel in) {
+            return new ProductDetails(in);
+        }
+
+        @Override
+        public ProductDetails[] newArray(int size) {
+            return new ProductDetails[size];
+        }
+    };
+
+    public String getProductImageName() {
+        return productImageName;
+    }
+
+    public void setProductImageName(String productImageName) {
+        this.productImageName = productImageName;
+    }
+
+
+    public String getProductImageUri() {
+        return productImageUri;
+    }
+
+    public void setProductImageUri(String productImageUri) {
+        this.productImageUri = productImageUri;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public String getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(productImageName);
+        dest.writeString(productImageUri);
+        dest.writeString(productName);
+        dest.writeString(productCategory);
+        dest.writeString(productDescription);
+        dest.writeString(productPrice);
+    }
+}

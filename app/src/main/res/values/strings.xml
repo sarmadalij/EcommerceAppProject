@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">EcommerceAppProject</string>
+    <string name="todo">TODO</string>
+    <string name="welcome_nback">Welcome\nBack</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="don_t_have_account_register">Don\'t have account ? Register</string>
+    <string name="create_naccount">Create\nAccount</string>
+    <string name="name">Name</string>
+    <string name="already_have_account_login">Already have account? Login</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account_user">Account User</string>
+    <string name="account">Account</string>
+    <string name="my_cart">My Cart</string>
+    <string name="product_category">Product Category</string>
+    <string name="product_description">Product Description</string>
+    <string name="add_product">Add Product</string>
+    <string name="product_price">Product Price</string>
+    <string name="admin">Admin</string>
+    <string name="textview">TextView</string>
+    <string name="todo12">TODO</string>
+    <string name="textview1212">TextView</string>
+    <string name="product_descriptionqwaas">Description</string>
+    <string name="textviewadetail">TextView</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="minus">-</string>
+    <string name="_01">1</string>
+    <string name="add">+</string>
+</resources>

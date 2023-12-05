@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginBg"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/top_background1"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/welcome_nback"
+        android:textColor="@color/logWelcome"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/LogEmail"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/logedittxtbg"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/hintcolorlogin"
+        android:textColorHint="@color/hintcolorlogin"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/LogPass"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/logedittxtbg"
+        android:drawableStart="@drawable/password"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/hintcolorlogin"
+        android:textColorHint="@color/hintcolorlogin"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogEmail"
+        tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+    <ImageView
+        android:id="@+id/LogImgBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogPass"
+        app:srcCompat="@drawable/btn_arraw1"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/buttonAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/admin"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toStartOf="@+id/LogImgBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogPass" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogImgBtn">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonfb"
+            style="@android:style/Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btnbg"
+            android:drawableEnd="@drawable/facebook"
+            android:padding="8dp"
+            android:text="@string/facebook"
+            android:textColor="#3b608c"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonGgl"
+            style="@android:style/Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/btnbg"
+            android:drawableEnd="@drawable/google"
+            android:padding="8dp"
+            android:text="@string/google"
+            android:textColor="#3b608c"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/registerText"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/don_t_have_account_register"
+        android:textColor="@color/logWelcome"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
