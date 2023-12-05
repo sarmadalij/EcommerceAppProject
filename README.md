@@ -16,7 +16,7 @@ The traditional shopping experience is transitioning rapidly towards online plat
 
 Our E-Commerce Android App aims to bridge this gap by providing a feature-rich, secure, and user-friendly application. Leveraging the capabilities of Android Studio, Java, and Firebase, we have crafted a solution that meets the expectations of today's online shoppers.
 
-##Constraints and Restrictions
+## Constraints and Restrictions
 
 ### Platform Compatibility: 
 
