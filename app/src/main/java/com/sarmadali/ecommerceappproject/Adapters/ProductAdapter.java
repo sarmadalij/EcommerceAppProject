@@ -13,13 +13,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
 
     ArrayList<ProductDetails> plist;
     Context context;

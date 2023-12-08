@@ -1,26 +1,25 @@
 package com.sarmadali.ecommerceappproject.ui;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
+import com.sarmadali.ecommerceappproject.SignUpActivity;
 import com.sarmadali.ecommerceappproject.databinding.FragmentProductDetailsBinding;
 import com.squareup.picasso.Picasso;
-
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 
 public class ProductDetailsFragment extends Fragment {
@@ -70,6 +69,23 @@ public class ProductDetailsFragment extends Fragment {
                 decrementQuantity();
             }
         });
+
+        binding.buttonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Toast.makeText(getContext(), "User is Signed In", Toast.LENGTH_SHORT).show();
+                } else {
+                    // No user is signed in
+                    showDialog();
+                    Toast.makeText(getContext(), "No Account Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         return binding.getRoot();
     }
 
@@ -92,5 +108,43 @@ public class ProductDetailsFragment extends Fragment {
             TextView quantityTextView = binding.counterTextView;
             quantityTextView.setText(String.valueOf(quantity));
         }
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+
+        // Setting Dialog Title
+        alertDialog.setTitle("Create Account");
+
+        // Setting Dialog Message
+        alertDialog.setMessage("Create Account to add product");
+
+        // Setting Icon to Dialog
+        alertDialog.setIcon(R.drawable.user);
+
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+
+                // Write your code here to invoke YES event
+//                Toast.makeText(getContext(), "You clicked on YES", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), SignUpActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+
+            }
+        });
+
+        // Setting Negative "NO" Button
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Write your code here to invoke NO event
+                Toast.makeText(getContext(), "You clicked on NO", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
+
+        // Showing Alert Message
+        alertDialog.show();
     }
 }

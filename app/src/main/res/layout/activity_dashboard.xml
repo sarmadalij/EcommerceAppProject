@@ -3,21 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
+    android:background="@color/loginBg"
     android:layout_width="match_parent"
+    android:windowSoftInputMode="adjustNothing"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar1"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:background="#FFFFFF"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:titleTextColor="@android:color/black"
-        app:title="Buzz Sell">
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@color/statusbar"-->
+<!--        android:minHeight="?attr/actionBarSize"-->
+<!--        android:theme="?attr/actionBarTheme"-->
+<!--        app:titleTextColor="@android:color/black"-->
+<!--        app:title="Buzz Sell">-->
 
-    </androidx.appcompat.widget.Toolbar>
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:id="@+id/searchView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="38dp"-->
+<!--        android:layout_marginStart="1dp"-->
+<!--        android:layout_marginEnd="1dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:visibility="invisible"-->
+<!--        android:background="@drawable/searchbarbg"-->
+<!--        android:padding="5dp" />-->
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,7 +55,7 @@
         app:itemTextColor="@drawable/bottom_tab_color"
         app:itemIconTint="@drawable/bottom_tab_color"
         app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
-        />
+        tools:ignore="VisualLintBottomNav" />
 
     <fragment
         android:id="@+id/nav_host_fragment_activity_dashboard"
@@ -50,7 +69,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation"
         tools:ignore="FragmentTagUsage"
-        android:layout_below="@+id/toolbar1"
+        android:layout_alignParentTop="true"
         android:layout_above="@+id/bottomnav"/>
 
 </RelativeLayout>

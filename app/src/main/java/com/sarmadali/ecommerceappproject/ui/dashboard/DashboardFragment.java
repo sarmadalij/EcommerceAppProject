@@ -2,7 +2,6 @@ package com.sarmadali.ecommerceappproject.ui.dashboard;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,15 +26,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Adapters.CategoryImagesAdapter;
 import com.sarmadali.ecommerceappproject.Adapters.ProductAdapter;
 import com.sarmadali.ecommerceappproject.Dashboard;
-import com.sarmadali.ecommerceappproject.MainActivity;
 import com.sarmadali.ecommerceappproject.Models.CategoryModel;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.databinding.FragmentDashboardBinding;
-import com.sarmadali.ecommerceappproject.ui.ProductDetailsFragment;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,6 +40,8 @@ public class DashboardFragment extends Fragment {
     private FragmentDashboardBinding binding;
     private DatabaseReference refDatabase;
     private ArrayList<ProductDetails> plist;
+    private ProductAdapter pAdapter;
+//    private ProductAdapter adapter;
 
     public DashboardFragment() {
         //Required empty public constructor
@@ -126,8 +121,7 @@ public class DashboardFragment extends Fragment {
                     ProductDetails productDetails = postSnapshot.getValue(ProductDetails.class);
                     plist.add(productDetails);
                 }
-
-                ProductAdapter pAdapter = new ProductAdapter(plist, getContext(),  new ProductAdapter.OnItemClickListener()
+                pAdapter = new ProductAdapter(plist, getContext(),  new ProductAdapter.OnItemClickListener()
                 {
                     @Override
                     public void onItemClick(ProductDetails product) {
@@ -137,10 +131,8 @@ public class DashboardFragment extends Fragment {
                         }
                     }
                 });
-
                 binding.recyclerviewProducts.setAdapter(pAdapter);
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -157,7 +149,7 @@ public class DashboardFragment extends Fragment {
     }
 
     private ProductAdapter.OnItemClickListener listener;
-
+    //to attach product detail page
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

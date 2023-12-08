@@ -33,4 +33,7 @@
     <string name="minus">-</string>
     <string name="_01">1</string>
     <string name="add">+</string>
+    <string name="create_account">Create Account</string>
+    <string name="todosdfsdfs">TODO</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
