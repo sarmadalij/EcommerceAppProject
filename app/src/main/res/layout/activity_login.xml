@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/loginBg"
+    android:orientation="vertical"
     tools:context=".LoginActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,10 +22,6 @@
         android:layout_height="300dp"
         android:contentDescription="@string/todo"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/top_background1"
         tools:ignore="ContentDescription,ImageContrastCheck" />
 
@@ -29,12 +34,11 @@
         android:textColor="@color/logWelcome"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        />
 
     <EditText
         android:id="@+id/LogEmail"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
@@ -48,14 +52,11 @@
         android:textColor="@color/hintcolorlogin"
         android:textColorHint="@color/hintcolorlogin"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
     <EditText
         android:id="@+id/LogPass"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
@@ -69,32 +70,35 @@
         android:textColor="@color/hintcolorlogin"
         android:textColorHint="@color/hintcolorlogin"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogEmail"
         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-    <ImageView
-        android:id="@+id/LogImgBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogPass"
-        app:srcCompat="@drawable/btn_arraw1"
-        tools:ignore="ContentDescription" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
 
     <Button
         android:id="@+id/buttonAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
         android:text="@string/admin"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        app:layout_constraintEnd_toStartOf="@+id/LogImgBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogPass" />
+       />
+
+        <ImageView
+            android:id="@+id/LogImgBtn"
+            android:layout_width="50dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LogPass"
+            app:srcCompat="@drawable/btn_arraw1"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -147,6 +151,7 @@
         android:id="@+id/registerText"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:layout_gravity="center"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="@string/don_t_have_account_register"
@@ -157,4 +162,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
         tools:ignore="TextContrastCheck" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
