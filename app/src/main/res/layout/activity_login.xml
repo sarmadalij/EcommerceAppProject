@@ -23,7 +23,7 @@
         android:contentDescription="@string/todo"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/top_background1"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView"
