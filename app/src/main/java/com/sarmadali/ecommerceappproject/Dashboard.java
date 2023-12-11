@@ -3,6 +3,8 @@ package com.sarmadali.ecommerceappproject;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,7 @@ import com.sarmadali.ecommerceappproject.databinding.ActivityDashboardBinding;
 import com.sarmadali.ecommerceappproject.ui.EmptyCart;
 import com.sarmadali.ecommerceappproject.ui.NoUserAccount;
 import com.sarmadali.ecommerceappproject.ui.ProductDetailsFragment;
+import com.sarmadali.ecommerceappproject.ui.SearchFragment;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 
@@ -83,8 +86,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
 
                 }
-                else if (item.getItemId() == R.id.navigation_profile)
-                {
+                else if (item.getItemId() == R.id.navigation_profile) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
                         // User is signed in
@@ -99,10 +101,23 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                         Toast.makeText(Dashboard.this, "No Account Found", Toast.LENGTH_SHORT).show();
                     }
 
-
                 }
 
                 return true;
+            }
+        });
+
+        // toolbar
+        // toolbar = findViewById(R.id.toolbar1);
+        setSupportActionBar(binding.toolbar1);
+        binding.imageSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SearchFragment searchFragment = new SearchFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
+                transaction.commit();
             }
         });
 

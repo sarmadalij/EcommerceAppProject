@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -88,8 +89,7 @@ public class DashboardFragment extends Fragment {
 
         //auto slide category starts
         final int time = 2000; // it's the delay time for sliding between items in recyclerview
-        //The LinearSnapHelper will snap the center of the target child view to the center of the attached RecyclerView ,
-        // it's optional if you want , you can use it
+        //The LinearSnapHelper will snap the center of the target child view to the center of the attached RecyclerView
         final LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
         linearSnapHelper.attachToRecyclerView(binding.recyclerviewCategory);
         final Timer timer = new Timer();

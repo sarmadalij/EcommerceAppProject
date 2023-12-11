@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ui.dashboard.DashboardFragment">
 
@@ -21,13 +21,13 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/searchbarbg">
+<!--            <androidx.appcompat.widget.SearchView-->
+<!--                android:id="@+id/searchView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/searchbarbg">-->
 
-            </androidx.appcompat.widget.SearchView>
+<!--            </androidx.appcompat.widget.SearchView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/slidercard"
@@ -94,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:padding="5dp"
         android:layout_below="@+id/topcategories"
         tools:listitem="@layout/sample_category"/>
 

@@ -27,6 +27,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         this.plist = plist;
         this.context = context;
         this.listener = listener;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -89,6 +90,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public interface OnItemClickListener {
         void onItemClick(ProductDetails product);
+    }
+    public void setDataList(ArrayList<ProductDetails> newDataList) {
+        this.plist = newDataList;
+        notifyDataSetChanged();
     }
 
 }
