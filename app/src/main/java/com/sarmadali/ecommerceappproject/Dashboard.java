@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -110,6 +111,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
         // toolbar
         // toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(binding.toolbar1);
+        //search image
         binding.imageSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,4 +159,5 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
             super.onBackPressed();
         }
     }
+
 }

@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -103,6 +105,11 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
 
         setRetainInstance(true);
 
+        //SEARCH ICON VISIBILITY GONE
+        Dashboard activity = (Dashboard) getActivity();
+        ImageView imageSearch = activity.findViewById(R.id.imageSearch);
+        imageSearch.setVisibility(View.GONE);
+
         return binding.getRoot();
     }
     // Method to filter data based on the search query
@@ -170,6 +177,11 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
                 .commit();
+
+        //SEARCH ICON VISIBILITY VISIBLE
+        Dashboard activity = (Dashboard) getActivity();
+        ImageView imageSearch = activity.findViewById(R.id.imageSearch);
+        imageSearch.setVisibility(View.VISIBLE);
 
         return true;
     }

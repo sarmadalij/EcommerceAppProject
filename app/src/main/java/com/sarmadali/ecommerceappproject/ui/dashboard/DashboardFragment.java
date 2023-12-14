@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -143,7 +144,6 @@ public class DashboardFragment extends Fragment {
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         binding.recyclerviewProducts.setLayoutManager(staggeredGridLayoutManager);
         //product recyclerview ends
-
 
         return binding.getRoot();
     }
