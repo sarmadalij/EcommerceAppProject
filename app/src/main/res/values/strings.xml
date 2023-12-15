@@ -7,7 +7,7 @@
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
     <string name="don_t_have_account_register">Don\'t have account ? Register</string>
-    <string name="create_naccount">Create\nAccount</string>
+    <string name="create_naccount">Create Account</string>
     <string name="name">Name</string>
     <string name="already_have_account_login">Already have account? Login</string>
     <string name="title_activity_dashboard">Dashboard</string>
@@ -36,4 +36,6 @@
     <string name="create_account">Create Account</string>
     <string name="todosdfsdfs">TODO</string>
     <string name="sign_up">Sign Up</string>
+    <string name="address">Address</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>

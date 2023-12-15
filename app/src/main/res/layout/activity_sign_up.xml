@@ -11,30 +11,35 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:contentDescription="@string/todo"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/top_background2"
-        tools:ignore="ContentDescription,ImageContrastCheck" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="48dp"
+                android:gravity="center"
+                android:text="@string/create_naccount"
+                android:textColor="@color/logWelcome"
+                android:textSize="36sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="@string/create_naccount"
-        android:textColor="@color/logWelcome"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        />
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profileImage"
+                android:layout_width="96dp"
+                android:layout_gravity="center"
+                android:layout_height="96dp"
+                android:src="@drawable/userplaceholder"
+                app:civ_border_width="2dp"
+                android:layout_marginBottom="32dp"
+                app:civ_border_color="#CCC8C8"
+                tools:ignore="RedundantNamespace" />
 
     <EditText
         android:id="@+id/RegName"
@@ -72,7 +77,7 @@
         android:textSize="18sp"
         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
-    <EditText
+            <EditText
         android:id="@+id/RegPass"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -90,6 +95,25 @@
         android:textSize="18sp"
         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
+            <EditText
+                android:id="@+id/RegConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/logedittxtbg"
+                android:drawableStart="@drawable/password"
+                android:drawablePadding="16dp"
+                android:ems="10"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:textColor="@color/hintcolorlogin"
+                android:textColorHint="@color/hintcolorlogin"
+                android:textSize="18sp"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,55 +125,54 @@
         android:id="@+id/RegImgBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         app:srcCompat="@drawable/btn_arraw1"
         tools:ignore="ContentDescription" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal"
-        >
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="32dp"
+                android:orientation="horizontal">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonfb"
-            style="@android:style/Widget.Button"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/btnbg"
-            android:drawableEnd="@drawable/facebook"
-            android:padding="8dp"
-            android:text="@string/facebook"
-            android:textColor="#3b608c"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonfb"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btnbg"
+                    android:drawableEnd="@drawable/facebook"
+                    android:padding="8dp"
+                    android:text="@string/facebook"
+                    android:textColor="#3b608c"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonGgl"
-            style="@android:style/Widget.Button"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/btnbg"
-            android:drawableEnd="@drawable/google"
-            android:padding="8dp"
-            android:text="@string/google"
-            android:textColor="#3b608c"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonGgl"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btnbg"
+                    android:drawableEnd="@drawable/google"
+                    android:padding="8dp"
+                    android:text="@string/google"
+                    android:textColor="#3b608c"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
 
-    </LinearLayout>
+            </LinearLayout>
 
     <TextView
         android:id="@+id/loginText"

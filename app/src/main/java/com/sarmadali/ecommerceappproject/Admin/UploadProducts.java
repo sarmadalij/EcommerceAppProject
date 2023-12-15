@@ -75,6 +75,7 @@ public class UploadProducts extends AppCompatActivity {
         startActivityForResult(intent, PICK_PHOTO);
     }
 
+    //upload to imageView
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
