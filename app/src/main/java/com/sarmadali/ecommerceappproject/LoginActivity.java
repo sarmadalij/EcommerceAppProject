@@ -26,14 +26,12 @@ import com.sarmadali.ecommerceappproject.databinding.ActivitySignUpBinding;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
-
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
        //register text to move to the the sign up
         binding.registerText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +71,10 @@ public class LoginActivity extends AppCompatActivity {
                 //validate input ends
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+//                                progressDialog.show();
                                 if (task.isSuccessful()) {
 //                                    // Sign in success, update UI with the signed-in user's information
 //                                    Log.d("TAG", "signInWithEmail:success");

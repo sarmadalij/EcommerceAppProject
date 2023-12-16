@@ -62,6 +62,9 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        progressDialog = new ProgressDialog(SignUpActivity.this);
+        progressDialog.setMessage("Processing...");
+        progressDialog.setCancelable(false);
         //sign up button
         binding.RegImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +106,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
     //add User data to Firebase
 
+    // Show a ProgressDialog
+    ProgressDialog progressDialog;
     private void addUserToFirebase() {
 
         if (imageUri != null){
@@ -126,15 +131,13 @@ public class SignUpActivity extends AppCompatActivity {
                 return; // Stop execution if email is empty
             }
 
-            // Show a ProgressDialog
-            ProgressDialog progressDialog = new ProgressDialog(SignUpActivity.this);
-            progressDialog.setMessage("Processing...");
-            progressDialog.setCancelable(false);
-            progressDialog.show();
             // Check if email already exists
+
             fAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+
                 @Override
                 public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+
 
                     if (task.isSuccessful()) {
 
@@ -142,7 +145,9 @@ public class SignUpActivity extends AppCompatActivity {
                         if (result != null && result.getSignInMethods() != null && result.getSignInMethods().size() > 0) {
                             // Email is already registered
                             binding.RegEmail.setError("This email is already registered");
+                            progressDialog.dismiss();
                             return; // Stop execution
+
                         } else {
                             // Email is not registered, continue with the registration process
 
@@ -167,7 +172,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 binding.RegConfirmPassword.setError("Passwords do not match");
                                 return; // Stop execution if passwords do not match
                             }
-
+                            progressDialog.show();
                             //image in database and storage
                             fileReference.putFile(imageUri)
                                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -249,6 +254,7 @@ public class SignUpActivity extends AppCompatActivity {
                         if (exception instanceof FirebaseAuthUserCollisionException) {
                             // Email is already in use by another account
                             binding.RegEmail.setError("This email is already registered");
+                            progressDialog.dismiss();
                         } else {
                             // Handle other exceptions
                             if (exception != null) {
@@ -264,6 +270,7 @@ public class SignUpActivity extends AppCompatActivity {
             //validate input ends
         } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
         }
     }
 
