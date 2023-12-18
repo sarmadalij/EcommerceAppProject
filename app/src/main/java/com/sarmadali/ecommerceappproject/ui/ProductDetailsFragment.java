@@ -8,27 +8,37 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.SignUpActivity;
 import com.sarmadali.ecommerceappproject.databinding.FragmentProductDetailsBinding;
+import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 import com.squareup.picasso.Picasso;
 
 
-public class ProductDetailsFragment extends Fragment {
+public class ProductDetailsFragment extends Fragment
+        implements Dashboard.IOnBackPressed {
 
     public ProductDetailsFragment() {
         // Required empty public constructor
     }
 
     FragmentProductDetailsBinding binding;
+    FirebaseUser firebaseUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,6 +96,46 @@ public class ProductDetailsFragment extends Fragment {
             }
         });
 
+
+        //add to cart starts
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String currentId = firebaseUser.getUid();
+        // Assuming you have a DatabaseReference reference initialized
+        DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
+                .child(currentId)
+                .child("cartProducts");
+
+        binding.buttonCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String pImage = product.getProductImageUri();
+                String pName = product.getProductName();
+                String pCateg = product.getProductCategory();
+                String pPrice = product.getProductPrice();
+                String pQuantity = binding.counterTextView.getText().toString();
+
+                ProductDetails cartProduct = new ProductDetails(pImage, pName,pCateg, pPrice, pQuantity);
+
+                // Add the item to the cart
+                cartRef.child(pName).setValue(cartProduct)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(getContext(), "Product Add to Cart successfully", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), "Failed Add to Cart", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+            }
+        });
+        //add to cart ends
         return binding.getRoot();
     }
 
@@ -146,5 +196,16 @@ public class ProductDetailsFragment extends Fragment {
 
         // Showing Alert Message
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        // Handle back button press in your fragment
+        // Go back to the default fragment
+        DashboardFragment defaultFragment = new DashboardFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
+                .commit();
+        return true;
     }
 }

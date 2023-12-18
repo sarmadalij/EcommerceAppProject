@@ -10,7 +10,6 @@
         android:name="com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
     <fragment
         android:id="@+id/navigation_mycarts"
         android:name="com.sarmadali.ecommerceappproject.ui.mycart.MyCartsFragment"
@@ -26,4 +25,24 @@
         android:name="com.sarmadali.ecommerceappproject.ui.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/cartUser"
+        android:name="com.sarmadali.ecommerceappproject.ui.CartUser"
+        android:label="fragment_cart_user"
+        tools:layout="@layout/fragment_cart_user" />
+    <fragment
+        android:id="@+id/emptyCart"
+        android:name="com.sarmadali.ecommerceappproject.ui.EmptyCart"
+        android:label="fragment_empty_cart"
+        tools:layout="@layout/fragment_empty_cart" />
+    <fragment
+        android:id="@+id/noUserAccount"
+        android:name="com.sarmadali.ecommerceappproject.ui.NoUserAccount"
+        android:label="fragment_no_user_account"
+        tools:layout="@layout/fragment_no_user_account" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.sarmadali.ecommerceappproject.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

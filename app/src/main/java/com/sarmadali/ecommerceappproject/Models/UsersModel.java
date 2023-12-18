@@ -6,7 +6,8 @@ public class UsersModel {
 
     //constructor
 
-    public UsersModel(String profilePic, String userName, String eMail, String passWord, String confirmPassword, String userId) {
+    public UsersModel(String profilePic, String userName, String eMail, String passWord,
+                      String confirmPassword, String userId) {
 
         this.profilePic = profilePic;
         this.userName = userName;
@@ -25,6 +26,10 @@ public class UsersModel {
         this.confirmPassword = confirmPassword;
     }
 
+    // Required default constructor for Firebase
+    public UsersModel() {
+        // Default constructor required for calls to DataSnapshot.getValue(UsersModel.class)
+    }
 
     //getter and setter
 

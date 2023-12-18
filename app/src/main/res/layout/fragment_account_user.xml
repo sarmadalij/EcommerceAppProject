@@ -1,17 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8EA2DD"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".ui.AccountUser">
+    android:background="@color/loginBg"
+    tools:context=".ui.AccountUser" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedscrollview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/account_user"
-        android:textSize="20sp" />
-</LinearLayout>
+        android:layout_above="@+id/buttonSignOut"
+        android:layout_alignParentTop="true"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessLeaf">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profileAccount"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/user"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#CCC8C8"
+                tools:ignore="RedundantNamespace"
+                />
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:textSize="16sp"
+                android:text="@string/profile_name"
+                android:textColor="@color/statusbar" />
+
+            <TextView
+                android:id="@+id/profileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:text="example@gmail.com"
+                android:textColor="#7A7E7D"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="3dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/btnbg"
+                android:drawableRight="@drawable/sellericon"
+                android:drawablePadding="5dp"
+                android:padding="5dp"
+                android:text="@string/became_seller"
+                android:textAllCaps="false"
+                android:textColor="@color/hintcolorlogin"
+                tools:ignore="RtlHardcoded,TouchTargetSizeCheck" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="#D7D8D8"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/myorders"
+                android:drawablePadding="20dp"
+                android:padding="10dp"
+                android:text="My Orders"
+                android:textColor="@color/chatsfragmentBg"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/wishlist"
+                android:drawablePadding="20dp"
+                android:padding="10dp"
+                android:text="My Wishlist"
+                android:textColor="@color/chatsfragmentBg"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/mycartb"
+                android:drawablePadding="20dp"
+                android:padding="10dp"
+                android:text="My Cart"
+                android:textColor="@color/chatsfragmentBg"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/buttonSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/hintcolorlogin"
+        android:text="@string/sign_out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        tools:ignore="VisualLintButtonSize" />
+</RelativeLayout>

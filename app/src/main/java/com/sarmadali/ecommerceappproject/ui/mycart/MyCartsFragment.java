@@ -16,7 +16,9 @@ import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.databinding.FragmentNotificationsBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
-public class MyCartsFragment extends Fragment implements Dashboard.IOnBackPressed {
+public class MyCartsFragment extends Fragment
+        implements Dashboard.IOnBackPressed
+{
 
     private FragmentNotificationsBinding binding;
 

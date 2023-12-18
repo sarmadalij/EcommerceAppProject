@@ -83,7 +83,9 @@ public class DashboardFragment extends Fragment {
 
         CategoryImagesAdapter adapter = new CategoryImagesAdapter(cList, getContext());
 
+        if (adapter != null && binding != null){
         binding.recyclerviewCategory.setAdapter(adapter);
+        }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         binding.recyclerviewCategory.setLayoutManager(linearLayoutManager);
@@ -132,7 +134,12 @@ public class DashboardFragment extends Fragment {
                         }
                     }
                 });
+
+                if (pAdapter != null && binding != null){
+
                 binding.recyclerviewProducts.setAdapter(pAdapter);
+
+                }
             }
 
             @Override

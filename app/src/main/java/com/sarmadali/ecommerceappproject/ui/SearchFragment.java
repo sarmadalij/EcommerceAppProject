@@ -1,6 +1,7 @@
 package com.sarmadali.ecommerceappproject.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,22 +65,9 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
         // Set up RecyclerView
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         binding.searchCycle.setLayoutManager(staggeredGridLayoutManager);
-        binding.searchCycle.setAdapter(pAdapter);
-
-        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                // Filter the data based on newText and update the RecyclerView
-                ArrayList<ProductDetails> filteredList = filterData(plist, newText);
-                pAdapter.setDataList(filteredList);
-                return true;
-            }
-        });
+        if (binding.searchCycle != null && pAdapter != null && binding != null) {
+            binding.searchCycle.setAdapter(pAdapter);
+        }
 
         // Set up Firebase
         refDatabase = FirebaseDatabase.getInstance().getReference("productDetails");
@@ -103,12 +92,24 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
         });
         //product recyclerview ends
 
-        setRetainInstance(true);
+        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-        //SEARCH ICON VISIBILITY GONE
-        Dashboard activity = (Dashboard) getActivity();
-        ImageView imageSearch = activity.findViewById(R.id.imageSearch);
-        imageSearch.setVisibility(View.GONE);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Filter the data based on newText and update the RecyclerView
+                ArrayList<ProductDetails> filteredList = filterData(plist, newText);
+                pAdapter.setDataList(filteredList);
+                return true;
+            }
+        });
+
+
+
+        setRetainInstance(true);
 
         return binding.getRoot();
     }
@@ -130,9 +131,14 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         // Perform your Fragment transaction or access the FragmentManager here
-
         listener = (Dashboard) getActivity();
 
+        if (context instanceof Dashboard) {
+            listener = (Dashboard) getActivity();
+        } else {
+            throw new ClassCastException(context.toString() + " must implement Dashboard interface");
+
+        }
     }
 
     @Override
@@ -172,17 +178,16 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
     @Override
     public boolean onBackPressed() {
         // Handle back button press in your fragment
-        // Go back to the default fragment in your case
-        DashboardFragment defaultFragment = new DashboardFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
-                .commit();
+        // Go back to the default fragment
+//        DashboardFragment defaultFragment = new DashboardFragment();
+//        getActivity().getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
+//                .commit();
 
-        //SEARCH ICON VISIBILITY VISIBLE
-        Dashboard activity = (Dashboard) getActivity();
-        ImageView imageSearch = activity.findViewById(R.id.imageSearch);
-        imageSearch.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(getContext(), Dashboard.class);
+        startActivity(intent);
 
         return true;
     }
+
 }

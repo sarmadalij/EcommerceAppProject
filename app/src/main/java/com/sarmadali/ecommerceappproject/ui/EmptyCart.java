@@ -1,5 +1,6 @@
 package com.sarmadali.ecommerceappproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,11 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sarmadali.ecommerceappproject.Dashboard;
+import com.sarmadali.ecommerceappproject.LoginActivity;
 import com.sarmadali.ecommerceappproject.R;
+import com.sarmadali.ecommerceappproject.databinding.FragmentAccountUserBinding;
+import com.sarmadali.ecommerceappproject.databinding.FragmentEmptyCartBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 
-public class EmptyCart extends Fragment implements Dashboard.IOnBackPressed{
+public class EmptyCart extends Fragment
+        implements Dashboard.IOnBackPressed
+{
 
 
     public EmptyCart() {
@@ -21,11 +27,26 @@ public class EmptyCart extends Fragment implements Dashboard.IOnBackPressed{
     }
 
 
+    FragmentEmptyCartBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_empty_cart, container, false);
+        binding = FragmentEmptyCartBinding.inflate(inflater, container, false);
+
+        //go to login page
+        binding.buttonGotoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+        return binding.getRoot();
     }
 
 

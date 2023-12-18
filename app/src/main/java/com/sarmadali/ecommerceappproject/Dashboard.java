@@ -1,6 +1,7 @@
 package com.sarmadali.ecommerceappproject;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.sarmadali.ecommerceappproject.Adapters.ProductAdapter;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.databinding.ActivityDashboardBinding;
+import com.sarmadali.ecommerceappproject.ui.AccountUser;
+import com.sarmadali.ecommerceappproject.ui.CartUser;
 import com.sarmadali.ecommerceappproject.ui.EmptyCart;
 import com.sarmadali.ecommerceappproject.ui.NoUserAccount;
 import com.sarmadali.ecommerceappproject.ui.ProductDetailsFragment;
@@ -57,23 +60,36 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-
-
+                //dashboard
                 if (item.getItemId() == R.id.navigation_dashboard)
                 {
                     DashboardFragment dashboardFragment = new DashboardFragment();
-//                    getSupportFragmentManager().beginTransaction().remove(homeFragment).commitAllowingStateLoss();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.nav_host_fragment_activity_dashboard , dashboardFragment);
                     transaction.commit();
+
                     Toast.makeText(Dashboard.this, "Welcome to Dashboard", Toast.LENGTH_SHORT).show();
-//                    this.getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+                    resetToolbar();
                 }
+                //search products
+                else if (item.getItemId() == R.id.navigation_search) {
+
+                    SearchFragment searchFragment = new SearchFragment();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
+                    transaction.commit();
+                }
+                //my carts
                 else if (item.getItemId() == R.id.navigation_mycarts)
                 {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
                         // User is signed in
+                        CartUser myCartsFragment = new CartUser();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , myCartsFragment);
+                        transaction.commit();
+
                         Toast.makeText(Dashboard.this, "User is Signed In", Toast.LENGTH_SHORT).show();
                     } else {
                         // No user is signed in
@@ -87,11 +103,17 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
 
                 }
+                //my profile
                 else if (item.getItemId() == R.id.navigation_profile) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
                         // User is signed in
                         Toast.makeText(Dashboard.this, "User is Signed In", Toast.LENGTH_SHORT).show();
+                        AccountUser accountUser = new AccountUser();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , accountUser);
+                        transaction.commit();
+
                     } else {
                         // No user is signed in
                         NoUserAccount accountUser = new NoUserAccount();
@@ -101,31 +123,36 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
                         Toast.makeText(Dashboard.this, "No Account Found", Toast.LENGTH_SHORT).show();
                     }
-
                 }
 
                 return true;
             }
         });
 
-        // toolbar
-        // toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(binding.toolbar1);
-        //search image
-        binding.imageSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        //search image
+//        binding.imageSearch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                SearchFragment searchFragment = new SearchFragment();
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
+//                transaction.commit();
+//            }
+//        });
 
-                SearchFragment searchFragment = new SearchFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
-                transaction.commit();
-            }
-        });
-
+        bottomNavigationView = binding.bottomnav;
     }
 
-
+    // Reset the toolbar to its original state
+    private void resetToolbar() {
+        // Customize the toolbar based on your requirements
+        // Set the original title, show all components, etc.
+        getSupportActionBar().setTitle("Buzz Sell");
+        // Show or hide other components as needed
+    }
+    //for product details
     @Override
     public void onItemClick(ProductDetails product) {
 
@@ -151,6 +178,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
     }
 
     //for fragment back pressed
+    private BottomNavigationView bottomNavigationView;
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_dashboard);
@@ -158,6 +186,22 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
         if (!(fragment instanceof IOnBackPressed) || !((IOnBackPressed) fragment).onBackPressed()) {
             super.onBackPressed();
         }
+
+        // Handle the back press event
+        // If you are in the Profile fragment and press back,
+        // you should behave as if the Dashboard is selected in the bottom navigation
+        if (bottomNavigationView.getSelectedItemId() == R.id.navigation_profile) {
+
+            bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);
+
+        } else if (bottomNavigationView.getSelectedItemId() == R.id.navigation_mycarts) {
+
+            bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);
+
+        }  else {
+            super.onBackPressed();
+        }
+
     }
 
 }

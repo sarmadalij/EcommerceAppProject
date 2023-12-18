@@ -38,4 +38,8 @@
     <string name="sign_up">Sign Up</string>
     <string name="address">Address</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="_0300_1234567">0300 1234567</string>
+    <string name="became_seller">Become a seller</string>
 </resources>
