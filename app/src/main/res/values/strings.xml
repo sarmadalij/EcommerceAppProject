@@ -42,4 +42,17 @@
     <string name="profile_name">Profile Name</string>
     <string name="_0300_1234567">0300 1234567</string>
     <string name="became_seller">Become a seller</string>
+    <string name="product_name">Product Name</string>
+    <string name="todo7688j">TODO</string>
+    <string name="quantity">Quantity:</string>
+    <string name="_10">10</string>
+    <string name="unit_price">Unit Price:</string>
+    <string name="rs">Rs</string>
+    <string name="_105">10</string>
+    <string name="_1">1</string>
+    <string name="total_price">Total Price</string>
+    <string name="rs12">Rs:</string>
+    <string name="_5025">5025</string>
+    <string name="todosdfsd">TODO</string>
+    <string name="button">Button</string>
 </resources>

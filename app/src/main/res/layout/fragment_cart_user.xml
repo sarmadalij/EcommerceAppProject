@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/loginBg"
-    android:orientation="vertical"
-    tools:context=".ui.CartUser"/>
+    tools:context=".ui.CartUser">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/sample_cart_item"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/grandTotalcartview"/>
+
+    <LinearLayout
+        android:id="@+id/grandTotalcartview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#E6008020"
+        android:orientation="horizontal"
+        android:layout_above="@+id/buttonProceed">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonProceed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button" />
+
+</RelativeLayout>

@@ -111,6 +111,11 @@ public class SearchFragment extends Fragment implements Dashboard.IOnBackPressed
 
         setRetainInstance(true);
 
+        //change title
+        Dashboard activity = (Dashboard) getActivity();
+        androidx.appcompat.widget.Toolbar toolbar = activity.findViewById(R.id.toolbar1);
+        toolbar.setTitle("Search");
+
         return binding.getRoot();
     }
     // Method to filter data based on the search query
