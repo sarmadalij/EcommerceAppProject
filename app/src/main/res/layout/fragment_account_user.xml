@@ -109,20 +109,22 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/mycartb"
-                android:drawablePadding="20dp"
-                android:padding="10dp"
-                android:text="My Cart"
-                android:textColor="@color/chatsfragmentBg"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
+
+                <TextView
+                    android:id="@+id/accountMyCart"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:drawableLeft="@drawable/mycartb"
+                    android:drawablePadding="20dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="My Cart"
+                    android:textColor="@color/chatsfragmentBg"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
 
             </LinearLayout>
 

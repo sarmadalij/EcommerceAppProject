@@ -42,9 +42,13 @@ public class EmptyCart extends Fragment
 
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
+
+        //change title
+        Dashboard activity = (Dashboard) getActivity();
+        androidx.appcompat.widget.Toolbar toolbar = activity.findViewById(R.id.toolbar1);
+        toolbar.setTitle("My Cart");
 
         return binding.getRoot();
     }

@@ -1,5 +1,6 @@
 package com.sarmadali.ecommerceappproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import android.view.ViewGroup;
 
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.R;
+import com.sarmadali.ecommerceappproject.SignUpActivity;
+import com.sarmadali.ecommerceappproject.databinding.FragmentNoUserAccountBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 
@@ -22,11 +25,28 @@ public class NoUserAccount extends Fragment
         // Required empty public constructor
     }
 
+    FragmentNoUserAccountBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_no_user_account, container, false);
+        binding = FragmentNoUserAccountBinding.inflate(inflater, container, false);
+
+        binding.noUserSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //change title
+        Dashboard activity = (Dashboard) getActivity();
+        androidx.appcompat.widget.Toolbar toolbar = activity.findViewById(R.id.toolbar1);
+        toolbar.setTitle("My Profile");
+
+        return binding.getRoot();
     }
 
     @Override

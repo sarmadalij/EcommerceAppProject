@@ -1,27 +1,21 @@
 package com.sarmadali.ecommerceappproject;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.sarmadali.ecommerceappproject.Admin.UploadProducts;
 import com.sarmadali.ecommerceappproject.databinding.ActivityLoginBinding;
-import com.sarmadali.ecommerceappproject.databinding.ActivitySignUpBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -38,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -69,28 +62,20 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.show();
 
                 //validate input ends
+
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-//                                progressDialog.show();
+
                                 if (task.isSuccessful()) {
-//                                    // Sign in success, update UI with the signed-in user's information
-//                                    Log.d("TAG", "signInWithEmail:success");
-//                                    FirebaseUser user = mAuth.getCurrentUser();
-////                                    updateUI(user);
                                     progressDialog.dismiss();
-                                Intent intent = new Intent(LoginActivity.this, Dashboard.class);
-                                startActivity(intent);
-                                finish();
+                                    Intent intent = new Intent(LoginActivity.this, Dashboard.class);
+                                    startActivity(intent);
+                                    finish();
 
                                 } else {
-//                                    // If sign in fails, display a message to the user.
-//                                    Log.w("TAG", "signInWithEmail:failure", task.getException());
-//                                    Toast.makeText(LoginActivity.this, "Sign In failed.",
-//                                            Toast.LENGTH_SHORT).show();
-//                                    updateUI(null);
                                     Toast.makeText(LoginActivity.this, "Sign In Failed", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
                                 }
@@ -109,15 +94,4 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStart() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-//            user is signed in
-            Intent intent = new Intent(LoginActivity.this, Dashboard.class);
-            startActivity(intent);
-            finish();
-    }
-        super.onStart();
-    }
 }

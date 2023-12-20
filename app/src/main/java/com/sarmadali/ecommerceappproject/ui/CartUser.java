@@ -2,8 +2,10 @@ package com.sarmadali.ecommerceappproject.ui;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -98,13 +100,10 @@ public class CartUser extends Fragment
     @Override
     public boolean onBackPressed() {
 
-        // Handle back button press in your fragment
-        // Go back to the default fragment
-        DashboardFragment defaultFragment = new DashboardFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
-                .commit();
-
+            DashboardFragment defaultFragment = new DashboardFragment();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
+                    .commit();
         return true;
     }
 }

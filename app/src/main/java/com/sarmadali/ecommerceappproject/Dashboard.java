@@ -68,7 +68,6 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                     transaction.replace(R.id.nav_host_fragment_activity_dashboard , dashboardFragment);
                     transaction.commit();
 
-                    Toast.makeText(Dashboard.this, "Welcome to Dashboard", Toast.LENGTH_SHORT).show();
                     resetToolbar();
                 }
                 //search products
@@ -90,7 +89,6 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                         transaction.replace(R.id.nav_host_fragment_activity_dashboard , myCartsFragment);
                         transaction.commit();
 
-                        Toast.makeText(Dashboard.this, "User is Signed In", Toast.LENGTH_SHORT).show();
                     } else {
                         // No user is signed in
                         EmptyCart myCartsFragment = new EmptyCart();
@@ -98,7 +96,6 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                         transaction.replace(R.id.nav_host_fragment_activity_dashboard , myCartsFragment);
                         transaction.commit();
 
-                        Toast.makeText(Dashboard.this, "Your Cart is Empty", Toast.LENGTH_SHORT).show();
                     }
 
 
@@ -108,7 +105,6 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
                         // User is signed in
-                        Toast.makeText(Dashboard.this, "User is Signed In", Toast.LENGTH_SHORT).show();
                         AccountUser accountUser = new AccountUser();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.nav_host_fragment_activity_dashboard , accountUser);
@@ -120,8 +116,6 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.nav_host_fragment_activity_dashboard , accountUser);
                         transaction.commit();
-
-                        Toast.makeText(Dashboard.this, "No Account Found", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -130,28 +124,15 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
         });
 
         setSupportActionBar(binding.toolbar1);
-//        //search image
-//        binding.imageSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                SearchFragment searchFragment = new SearchFragment();
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
-//                transaction.commit();
-//            }
-//        });
 
         bottomNavigationView = binding.bottomnav;
     }
 
     // Reset the toolbar to its original state
     private void resetToolbar() {
-        // Customize the toolbar based on your requirements
-        // Set the original title, show all components, etc.
         getSupportActionBar().setTitle("Buzz Sell");
-        // Show or hide other components as needed
     }
+
     //for product details
     @Override
     public void onItemClick(ProductDetails product) {
@@ -163,7 +144,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
         args.putParcelable("product", product);
         fragment.setArguments(args);
 
-        // Use FragmentManager to replace the current fragment with the ProductDetailFragment
+        // Using FragmentManager to replace the current fragment with the ProductDetailFragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment_activity_dashboard, fragment);
@@ -172,7 +153,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
     }
 
-    //for fragment back pressed
+    //Interface to implement for fragments back pressed
     public interface IOnBackPressed {
         boolean onBackPressed();
     }
@@ -187,9 +168,8 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
             super.onBackPressed();
         }
 
-        // Handle the back press event
-        // If you are in the Profile fragment and press back,
-        // you should behave as if the Dashboard is selected in the bottom navigation
+        // If user is in the Profile fragment and press back,
+        // user should behave as if the Dashboard is selected in the bottom navigation
         if (bottomNavigationView.getSelectedItemId() == R.id.navigation_profile) {
 
             bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);

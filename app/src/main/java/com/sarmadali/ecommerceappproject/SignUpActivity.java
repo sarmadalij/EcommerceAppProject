@@ -58,7 +58,6 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -150,8 +149,6 @@ public class SignUpActivity extends AppCompatActivity {
 
                         } else {
                             // Email is not registered, continue with the registration process
-
-                            // Rest of code to upload images...
 
                             if (TextUtils.isEmpty(pass)) {
                                 binding.RegPass.setError("Password cannot be empty");
@@ -245,11 +242,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                                         }
                                     });
-                            // Continue with  existing code to upload image and create user
                         }
 
                     } else {
-                        // Handle the exception if the task is not successful
+                        // Handling the exception if the task is not successful
                         Exception exception = task.getException();
                         if (exception instanceof FirebaseAuthUserCollisionException) {
                             // Email is already in use by another account

@@ -4,14 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +25,7 @@ import com.sarmadali.ecommerceappproject.Models.UsersModel;
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.databinding.FragmentAccountUserBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
+import com.sarmadali.ecommerceappproject.ui.mycart.MyCartsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -107,16 +108,8 @@ public class AccountUser extends Fragment
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    // Assuming each child under "userDetails" represents a user
                     UsersModel currentUserModel = snapshot.getValue(UsersModel.class);
                     if (currentUserModel != null) {
-                        // Now, currentUserModel contains the data for the current user
-                        // add it to an array or use it as needed
-//                        ArrayList<UsersModel> userList = new ArrayList<>();
-//                        userList.add(currentUserModel);
-
-                        // Example: Print the user data
-//                        for (UsersModel user : userList) {
 
                             Uri profileImage = Uri.parse(currentUserModel.getProfilePic());
                             Picasso.get().load(profileImage).placeholder(R.drawable.user)
@@ -140,13 +133,24 @@ public class AccountUser extends Fragment
         }
         final ArrayList<UsersModel> userList = new ArrayList<>();
 
+        binding.accountMyCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartUser cartUser = new CartUser();
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment_activity_dashboard, cartUser);
+                transaction.addToBackStack(null); // Add to back stack
+                transaction.commit();
+            }
+        });
+
         return binding.getRoot();
     }
 
     @Override
     public boolean onBackPressed() {
-        // Handle back button press in your fragment
-        // Go back to the default fragment in your case
         DashboardFragment defaultFragment = new DashboardFragment();
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
