@@ -5,18 +5,19 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.io.Serializable;
-
 public class ProductDetails implements Parcelable {
     String productImageName, productImageUri;
     String productName, productCategory, productDescription, productPrice;
     String productQuantity;
+
+    int totalProductPrice;
     //empty constructor
     public ProductDetails() {
     }
 
     //constructor for all
-    public ProductDetails(String productImageName, String productImageUri, String productName, String productCategory, String productDescription, String productPrice) {
+    public ProductDetails(String productImageName, String productImageUri, String productName,
+                          String productCategory, String productDescription, String productPrice) {
         this.productImageName = productImageName;
         this.productImageUri = productImageUri;
         this.productName = productName;
@@ -28,17 +29,26 @@ public class ProductDetails implements Parcelable {
     //constructor for add to cart
 
     public ProductDetails(String productImageUri, String productName, String productCategory,
-                         String productPrice, String productQuantity) {
+                         String productPrice, String productQuantity,int totalProductPrice) {
         this.productImageUri = productImageUri;
         this.productName = productName;
         this.productCategory = productCategory;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
+        this.totalProductPrice = totalProductPrice;
     }
 
 
     //getter and setter
 
+
+    public int getTotalProductPrice() {
+        return totalProductPrice;
+    }
+
+    public void setTotalProductPrice(int totalProductPrice) {
+        this.totalProductPrice = totalProductPrice;
+    }
 
     public String getProductQuantity() {
         return productQuantity;

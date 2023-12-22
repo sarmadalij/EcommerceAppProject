@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -92,7 +93,9 @@ public class ProductDetailsFragment extends Fragment
                 String pPrice = product.getProductPrice();
                 String pQuantity = binding.counterTextView.getText().toString();
 
-                ProductDetails cartProduct = new ProductDetails(pImage, pName,pCateg, pPrice, pQuantity);
+                int totalPrice =(Integer.parseInt(pPrice)*Integer.parseInt(pQuantity));
+
+                ProductDetails cartProduct = new ProductDetails(pImage, pName,pCateg, pPrice, pQuantity, totalPrice);
 
                 String currentId;
                 DatabaseReference cartRef;
@@ -119,6 +122,11 @@ public class ProductDetailsFragment extends Fragment
                                     Toast.makeText(getContext(), "Failed Add to Cart", Toast.LENGTH_SHORT).show();
                                 }
                             });
+
+                    CartUser cartUser = new CartUser();
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.nav_host_fragment_activity_dashboard, cartUser)
+                            .commit();
 
                 } else {
                     showDialog();

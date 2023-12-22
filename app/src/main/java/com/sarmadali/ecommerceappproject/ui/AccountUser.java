@@ -25,7 +25,6 @@ import com.sarmadali.ecommerceappproject.Models.UsersModel;
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.databinding.FragmentAccountUserBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
-import com.sarmadali.ecommerceappproject.ui.mycart.MyCartsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -141,7 +140,6 @@ public class AccountUser extends Fragment
                 FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.nav_host_fragment_activity_dashboard, cartUser);
-                transaction.addToBackStack(null); // Add to back stack
                 transaction.commit();
             }
         });

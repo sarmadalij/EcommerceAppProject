@@ -2,17 +2,13 @@ package com.sarmadali.ecommerceappproject.ui;
 
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Adapters.MyCartAdapter;
-import com.sarmadali.ecommerceappproject.Adapters.ProductAdapter;
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
@@ -31,6 +26,7 @@ import com.sarmadali.ecommerceappproject.databinding.FragmentCartUserBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CartUser extends Fragment
         implements Dashboard.IOnBackPressed
@@ -45,6 +41,7 @@ public class CartUser extends Fragment
     private ArrayList<ProductDetails> plist;
     FirebaseUser firebaseUser;
     private MyCartAdapter pAdapter;
+    int temp = 0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,8 +59,9 @@ public class CartUser extends Fragment
         String currentId = firebaseUser.getUid();
         // Assuming you have a DatabaseReference reference initialized
         DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
-                .child(currentId)
-                .child("cartProducts");
+                .child(currentId).child("cartProducts");
+
+
 
         cartRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,8 +70,13 @@ public class CartUser extends Fragment
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     ProductDetails productDetails = postSnapshot.getValue(ProductDetails.class);
+
+                    temp += Integer.parseInt(String.valueOf(productDetails.getTotalProductPrice()));
+
                     plist.add(productDetails);
                 }
+
+                binding.grandTotalcartviewprice.setText(String.valueOf(temp));
 
                 pAdapter = new MyCartAdapter(plist, getContext());
 
@@ -83,7 +86,6 @@ public class CartUser extends Fragment
                 }
                 pAdapter.notifyDataSetChanged();
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
