@@ -1,5 +1,3 @@
-# EcommerceAppProject
-
 # E-Commerce Android App
 
 ### Introduction
