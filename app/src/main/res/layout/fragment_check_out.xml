@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginBg"
+    android:orientation="vertical"
+    tools:context=".ui.CheckOutFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loginBg"
+        android:contentDescription="@string/_01">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:background="@color/loginBg"
+            android:orientation="vertical">
+
+<!--            billing details starts-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:background="@color/loginBg"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:gravity="center"
+                        android:textColor="@color/hintcolorlogin"
+                        android:text="@string/billing_details"
+                        android:textSize="22sp"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/editTextText"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:background="@drawable/logedittxtbg"
+                        android:drawableStart="@drawable/name"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:hint="@string/namesdfsf"
+                        android:inputType="text"
+                        android:textColor="@color/hintcolorlogin"
+                        android:textColorHint="@color/hintcolorlogin"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+                    <EditText
+                        android:id="@+id/editTextTextEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:background="@drawable/logedittxtbg"
+                        android:drawableStart="@drawable/email"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:hint="@string/emailsdfs"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/hintcolorlogin"
+                        android:textColorHint="@color/hintcolorlogin"
+                        android:textSize="18sp"
+                        tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize"
+                        android:importantForAutofill="no" />
+
+                    <EditText
+                        android:id="@+id/editTextText4"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:padding="10dp"
+                        android:background="@drawable/logedittxtbg"
+                        android:drawableStart="@drawable/baseline_phone_24"
+                        android:drawablePadding="16dp"
+                        android:ems="10"
+                        android:hint="@string/phone_number"
+                        android:inputType="text"
+                        android:textColor="@color/hintcolorlogin"
+                        android:textColorHint="@color/hintcolorlogin"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+
+                    <EditText
+                        android:id="@+id/editTextText5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/logedittxtbg"
+                        android:drawableStart="@drawable/baseline_home_work_24"
+                        android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:gravity="top|start"
+                        android:hint="@string/billing_address"
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/hintcolorlogin"
+                        android:textColorHint="@color/hintcolorlogin"
+                        android:textSize="18sp"
+                        tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+                </LinearLayout>
+
+<!--            billing details ends-->
+
+<!--            order summary starts-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:background="@color/loginBg"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView24534"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:gravity="center"
+                    android:textColor="@color/hintcolorlogin"
+                    android:text="Order Summary"
+                    android:textSize="22sp"
+                    android:textStyle="bold"/>
+
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/checkOutRecyclerview"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                  tools:listitem="@layout/sample_checkout">
+              </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Sub Total"/>
+                    <TextView
+                        android:id="@+id/subTotalCheckOut"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="333"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Tax Charges"/>
+                    <TextView
+                        android:id="@+id/taxCheckOut"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="112"/>
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Delivery Charges"/>
+                        <TextView
+                            android:id="@+id/deliveryCheckOut"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="300"/>
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:text="Total"/>
+                    <TextView
+                        android:id="@+id/grandTotalCheckOut"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="111"/>
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm Order"
+                android:padding="5dp"
+                android:textAllCaps="false">
+
+            </androidx.appcompat.widget.AppCompatButton>
+<!--            order summary ends -->
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

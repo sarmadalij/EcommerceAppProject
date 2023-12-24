@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="horizontal"
-    android:background="#AEA17A40"
+    android:background="@drawable/bg_cart_item"
     android:padding="5dp"
+    android:elevation="5dp"
     android:layout_marginBottom="2dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
     android:layout_height="wrap_content">
-
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/productCartImage"
@@ -17,6 +20,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         app:civ_border_width="2dp"
+        android:scaleType="centerCrop"
         app:civ_border_color="#CCC8C8"
         app:srcCompat="@drawable/food1"
         android:contentDescription="@string/todo7688j"

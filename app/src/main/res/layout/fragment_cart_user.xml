@@ -19,22 +19,87 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#E6008020"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="5dp"
         android:layout_above="@+id/buttonProceed">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textViewsub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="Sub Total" />
         <TextView
             android:id="@+id/grandTotalcartviewprice"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="123"
-            android:textSize="30sp"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="20sp"/>
+        </LinearLayout>
+
+<!--        delivery charges-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewdelivery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Delivery Charges" />
+            <TextView
+                android:id="@+id/deliveryprices"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="250"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+<!--        grand total-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewgrand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="Total" />
+            <TextView
+                android:id="@+id/grandtotalpricecart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="123"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonProceed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/button" />
+        android:textAllCaps="false"
+        android:text="Check Out" />
 
 </RelativeLayout>

@@ -55,4 +55,9 @@
     <string name="_5025">5025</string>
     <string name="todosdfsd">TODO</string>
     <string name="button">Button</string>
+    <string name="billing_details">Billing Details</string>
+    <string name="namesdfsf">Name</string>
+    <string name="emailsdfs">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="billing_address">Billing Address</string>
 </resources>

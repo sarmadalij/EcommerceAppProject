@@ -18,75 +18,76 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sarmadali.ecommerceappproject.Adapters.CheckOutAdapter;
 import com.sarmadali.ecommerceappproject.Adapters.MyCartAdapter;
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
-import com.sarmadali.ecommerceappproject.databinding.FragmentCartUserBinding;
+import com.sarmadali.ecommerceappproject.databinding.FragmentCheckOutBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class CartUser extends Fragment
-        implements Dashboard.IOnBackPressed
-{
+public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPressed {
 
 
-    public CartUser() {
+    public CheckOutFragment() {
         // Required empty public constructor
     }
 
-    FragmentCartUserBinding binding;
+    FragmentCheckOutBinding checkOutBinding;
     private ArrayList<ProductDetails> plist;
     FirebaseUser firebaseUser;
-    private MyCartAdapter pAdapter;
-    int temp = 0;
-    int total;
+    private CheckOutAdapter pAdapter;
+    int subTotal, taxCharges, deliveryCharges, total;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentCartUserBinding.inflate(inflater, container, false);
+        checkOutBinding = FragmentCheckOutBinding.inflate(inflater, container, false);
 
         //change title
         Dashboard activity = (Dashboard) getActivity();
         androidx.appcompat.widget.Toolbar toolbar = activity.findViewById(R.id.toolbar1);
-        toolbar.setTitle("My Cart");
+        toolbar.setTitle("Check Out");
 
-        //my cart recyclerview starts
+
+        //my checkout recyclerview starts
         plist = new ArrayList<>();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         String currentId = firebaseUser.getUid();
+
         // Assuming you have a DatabaseReference reference initialized
         DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
                 .child(currentId).child("cartProducts");
-
 
 
         cartRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 plist.clear();
-
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     ProductDetails productDetails = postSnapshot.getValue(ProductDetails.class);
 
-                    temp += Integer.parseInt(String.valueOf(productDetails.getTotalProductPrice()));
-
+                    subTotal += Integer.parseInt(String.valueOf(productDetails.getTotalProductPrice()));
                     plist.add(productDetails);
                 }
 
-                binding.grandTotalcartviewprice.setText(String.valueOf(temp));
-                total = temp + Integer.parseInt(binding.deliveryprices.getText().toString());
-                binding.grandtotalpricecart.setText(String.valueOf(total));
+                checkOutBinding.subTotalCheckOut.setText(String.valueOf(subTotal));
+
+                taxCharges = (int) (subTotal*0.08);
+
+                checkOutBinding.taxCheckOut.setText(String.valueOf(taxCharges));
+
+                deliveryCharges = Integer.parseInt(checkOutBinding.deliveryCheckOut.getText().toString());
+                total = subTotal+taxCharges+deliveryCharges;
+
+                checkOutBinding.grandTotalCheckOut.setText(String.valueOf(total));
 
 
-
-                pAdapter = new MyCartAdapter(plist, getContext());
-
+                pAdapter = new CheckOutAdapter(getContext(), plist);
                 if (pAdapter != null){
-                binding.cartRecyclerview.setAdapter(pAdapter);
+                    checkOutBinding.checkOutRecyclerview.setAdapter(pAdapter);
                 }
                 pAdapter.notifyDataSetChanged();
             }
@@ -97,30 +98,21 @@ public class CartUser extends Fragment
             }
         });
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        binding.cartRecyclerview.setLayoutManager(linearLayoutManager);
-        //my cart recyclerview ends
 
-        // go to check out fragment
-        binding.buttonProceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CheckOutFragment checkOutFragment = new CheckOutFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.nav_host_fragment_activity_dashboard, checkOutFragment)
-                        .commit();
-            }
-        });
-        return binding.getRoot();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        checkOutBinding.checkOutRecyclerview.setLayoutManager(linearLayoutManager);
+        //my checkout recyclerview ends
+
+        return checkOutBinding.getRoot();
     }
 
     @Override
     public boolean onBackPressed() {
 
-            DashboardFragment defaultFragment = new DashboardFragment();
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
-                    .commit();
+        DashboardFragment defaultFragment = new DashboardFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
+                .commit();
         return true;
     }
 }
