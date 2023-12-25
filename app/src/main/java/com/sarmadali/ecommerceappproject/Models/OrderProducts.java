@@ -1,5 +1,7 @@
 package com.sarmadali.ecommerceappproject.Models;
 
+import java.util.ArrayList;
+
 public class OrderProducts {
 
     String orderUName, orderUEmail, orderUPhone, orderUAddress, orderTotalPrice;
@@ -7,6 +9,15 @@ public class OrderProducts {
     String productOrderImage;
     String productOrderName;
     String productOrderQuantity;
+
+    private ArrayList<ProductDetails> productList;  // Add this line
+    public ArrayList<ProductDetails> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(ArrayList<ProductDetails> productList) {
+        this.productList = productList;
+    }
 
     public OrderProducts() {
     }

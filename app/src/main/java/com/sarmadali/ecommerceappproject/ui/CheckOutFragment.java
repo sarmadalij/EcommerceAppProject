@@ -130,8 +130,8 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
                         userOrderBillingAddress, totalOrderPrice);
 
                 //for order products info
-                OrderProducts orderProductsDetails = new OrderProducts(productOrderImage, productOrderName,
-                        productOrderQuantity);
+//                OrderProducts orderProductsDetails = new OrderProducts(productOrderImage, productOrderName,
+//                        productOrderQuantity);
 
                 String currentId;
                 DatabaseReference cartRef;

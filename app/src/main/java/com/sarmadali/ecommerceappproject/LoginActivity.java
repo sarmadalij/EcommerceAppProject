@@ -85,14 +85,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //go to admin/upload products page
-        binding.buttonAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, UploadProducts.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }

@@ -21,17 +21,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Dashboard;
+import com.sarmadali.ecommerceappproject.LoginActivity;
 import com.sarmadali.ecommerceappproject.Models.UsersModel;
 import com.sarmadali.ecommerceappproject.R;
+import com.sarmadali.ecommerceappproject.Seller.UploadProducts;
 import com.sarmadali.ecommerceappproject.databinding.FragmentAccountUserBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AccountUser extends Fragment
-        implements Dashboard.IOnBackPressed
-{
+public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
 
     public AccountUser() {
         // Required empty public constructor
@@ -144,6 +144,26 @@ public class AccountUser extends Fragment
             }
         });
 
+        binding.profileMyOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentMyOrders myOrders = new FragmentMyOrders();
+
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment_activity_dashboard, myOrders);
+                transaction.commit();
+            }
+        });
+
+
+        binding.becomeSeller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UploadProducts.class);
+                startActivity(intent);
+            }
+        });
         return binding.getRoot();
     }
 
