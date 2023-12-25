@@ -16,7 +16,7 @@
         android:background="@color/statusbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Buzz Sell"
+        app:title="E-Commerce"
         app:titleTextColor="@color/white"
         >
     </androidx.appcompat.widget.Toolbar>

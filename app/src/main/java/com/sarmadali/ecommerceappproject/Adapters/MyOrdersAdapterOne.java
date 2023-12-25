@@ -95,7 +95,7 @@ public class MyOrdersAdapterOne extends RecyclerView.Adapter<MyOrdersAdapterOne.
             textViewOrderEmail.setText("Order Email: " + order.getOrderUEmail());
             textViewOrderPhone.setText("Order Phone: " + order.getOrderUPhone());
             textViewOrderAddress.setText("Order Address: " + order.getOrderUAddress());
-            textViewOrderTotal.setText("Order Total: " + order.getOrderTotalPrice());
+            textViewOrderTotal.setText("Order Total Amount: \t\tRs " + order.getOrderTotalPrice());
         }
 
         public void bindProductList(ArrayList<ProductDetails> productList) {

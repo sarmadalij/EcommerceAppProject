@@ -130,7 +130,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
     // Reset the toolbar to its original state
     private void resetToolbar() {
-        getSupportActionBar().setTitle("Buzz Sell");
+        getSupportActionBar().setTitle("E-Commerce");
     }
 
     //for product details
