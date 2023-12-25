@@ -78,10 +78,6 @@ public class CartUser extends Fragment
                 }
 
                 binding.grandTotalcartviewprice.setText(String.valueOf(temp));
-//                total = temp + Integer.parseInt(binding.deliveryprices.getText().toString());
-//                binding.grandtotalpricecart.setText(String.valueOf(total));
-
-
 
                 pAdapter = new MyCartAdapter(plist, getContext());
 

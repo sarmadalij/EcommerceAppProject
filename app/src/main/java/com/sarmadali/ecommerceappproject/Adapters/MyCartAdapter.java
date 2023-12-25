@@ -49,12 +49,14 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         ProductDetails productModel = plist.get(position);
-
-        final int[] quant = {Integer.parseInt(productModel.getProductQuantity())};
+        String quantity = productModel.getProductQuantity();
+        final int[] quant = {Integer.parseInt(quantity)};
 
         holder.pQuantity.setText(productModel.getProductQuantity());
-        int productPrice = Integer.parseInt(productModel.getProductPrice());
-        int productQuantity = Integer.parseInt(productModel.getProductQuantity());
+        String price = productModel.getProductPrice();
+        int productPrice = Integer.parseInt(price);
+
+        int productQuantity = Integer.parseInt(quantity);
 
         int total = (productPrice*productQuantity);
 

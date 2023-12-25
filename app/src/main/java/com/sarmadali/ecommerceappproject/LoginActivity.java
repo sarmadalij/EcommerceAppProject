@@ -14,7 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.sarmadali.ecommerceappproject.Admin.UploadProducts;
+import com.sarmadali.ecommerceappproject.Seller.UploadProducts;
 import com.sarmadali.ecommerceappproject.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {

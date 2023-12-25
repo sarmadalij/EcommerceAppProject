@@ -40,7 +40,7 @@
                         android:textStyle="bold"/>
 
                     <EditText
-                        android:id="@+id/editTextText"
+                        android:id="@+id/orderName"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:padding="10dp"
@@ -57,7 +57,7 @@
                         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                     <EditText
-                        android:id="@+id/editTextTextEmailAddress"
+                        android:id="@+id/orderEmail"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:padding="10dp"
@@ -75,7 +75,7 @@
                         android:importantForAutofill="no" />
 
                     <EditText
-                        android:id="@+id/editTextText4"
+                        android:id="@+id/orderNumber"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:padding="10dp"
@@ -92,7 +92,7 @@
                         tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                     <EditText
-                        android:id="@+id/editTextText5"
+                        android:id="@+id/orderBillingAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textColor="#F725252E"
+                        android:textColor="@color/loginBg"
                         android:text="Sub Total"/>
                     <TextView
                         android:id="@+id/subTotalCheckOut"
@@ -184,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:textColor="#F725252E"
+                        android:textColor="@color/loginBg"
                         android:text="Tax Charges"/>
                     <TextView
                         android:id="@+id/taxCheckOut"
@@ -205,7 +205,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:textColor="#F725252E"
+                            android:textColor="@color/loginBg"
                             android:text="Delivery Charges"/>
                         <TextView
                             android:id="@+id/deliveryCheckOut"
@@ -228,7 +228,7 @@
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="16sp"
-                        android:textColor="#F725252E"
+                        android:textColor="@color/loginBg"
                         android:text="Total"/>
                     <TextView
                         android:id="@+id/grandTotalCheckOut"
@@ -244,6 +244,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirmOrder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Confirm Order"

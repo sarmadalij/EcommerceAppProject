@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Admin.UploadProducts">
+    tools:context=".Seller.UploadProducts">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

@@ -28,8 +28,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.sarmadali.ecommerceappproject.Admin.UploadProducts;
-import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.Models.UsersModel;
 import com.sarmadali.ecommerceappproject.databinding.ActivitySignUpBinding;
 import com.squareup.picasso.Picasso;

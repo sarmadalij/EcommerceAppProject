@@ -17,7 +17,7 @@
         android:theme="@style/Theme.EcommerceAppProject"
         tools:targetApi="31">
         <activity
-            android:name=".Admin.UploadProducts"
+            android:name=".Seller.UploadProducts"
             android:exported="true">
 
         </activity>
