@@ -69,16 +69,19 @@ public class DashboardFragment extends Fragment {
         //category images recyclerview starts
         ArrayList<CategoryModel> cList = new ArrayList<>();
 
-        cList.add(new CategoryModel(R.drawable.food1, "Category Name1"));
-        cList.add(new CategoryModel(R.drawable.food2, "Category Name2"));
-        cList.add(new CategoryModel(R.drawable.food3, "Category Name3"));
-        cList.add(new CategoryModel(R.drawable.food1, "Category Name4"));
-        cList.add(new CategoryModel(R.drawable.food2, "Category Name5"));
-        cList.add(new CategoryModel(R.drawable.food3, "Category Name6"));
-        cList.add(new CategoryModel(R.drawable.food1, "Category Name7"));
-        cList.add(new CategoryModel(R.drawable.food2, "Category Name8"));
-        cList.add(new CategoryModel(R.drawable.food3, "Category Name9"));
-        cList.add(new CategoryModel(R.drawable.food1, "Category Name10"));
+        cList.add(new CategoryModel(R.drawable.categorya, "Men's \nFormal"));
+        cList.add(new CategoryModel(R.drawable.categoryb, "Women's \nFormal"));
+        cList.add(new CategoryModel(R.drawable.categoryc, "Baby \nSpecial"));
+        cList.add(new CategoryModel(R.drawable.categoryd, "Casual \nShoe"));
+        cList.add(new CategoryModel(R.drawable.categorye, "Sports \nWear"));
+        cList.add(new CategoryModel(R.drawable.categoryf, "Men's \nKurta"));
+        cList.add(new CategoryModel(R.drawable.categorya, "Men's \nFormal"));
+        cList.add(new CategoryModel(R.drawable.categoryb, "Women's \nFormal"));
+        cList.add(new CategoryModel(R.drawable.categoryc, "Baby \nSpecial"));
+        cList.add(new CategoryModel(R.drawable.categoryd, "Casual \nShoe"));
+        cList.add(new CategoryModel(R.drawable.categorye, "Sports \nWear"));
+        cList.add(new CategoryModel(R.drawable.categoryf, "Men's \nKurta"));
+
 
 
         CategoryImagesAdapter adapter = new CategoryImagesAdapter(cList, getContext());

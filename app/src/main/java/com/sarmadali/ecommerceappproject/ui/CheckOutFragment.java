@@ -140,20 +140,20 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
                 //validate input
                 if (TextUtils.isEmpty(userOrderName)) {
                     checkOutBinding.orderName.setError("Name cannot be empty");
-                    return; // Stop execution if email is empty
+                    return; // Stop execution
                 }
 
                 if (TextUtils.isEmpty(userOrderEmail)) {
                     checkOutBinding.orderEmail.setError("Email cannot be empty");
-                    return; // Stop execution if password is empty
+                    return; // Stop execution
                 }
                 if (TextUtils.isEmpty(userOrderPhone)) {
                     checkOutBinding.orderNumber.setError("Phone Number cannot be empty");
-                    return; // Stop execution if password is empty
+                    return; // Stop execution
                 }
                 if (TextUtils.isEmpty(userOrderBillingAddress)) {
                     checkOutBinding.orderBillingAddress.setError("Address cannot be empty");
-                    return; // Stop execution if password is empty
+                    return; // Stop execution
                 }
 
 
