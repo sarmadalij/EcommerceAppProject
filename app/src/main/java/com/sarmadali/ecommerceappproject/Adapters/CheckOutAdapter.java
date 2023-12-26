@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CheckOutAdapter  extends RecyclerView.Adapter<CheckOutAdapter.ViewHolder>{
+public class CheckOutAdapter extends RecyclerView.Adapter<CheckOutAdapter.ViewHolder> {
 
     Context context;
     ArrayList<ProductDetails> plist;
@@ -54,7 +54,7 @@ public class CheckOutAdapter  extends RecyclerView.Adapter<CheckOutAdapter.ViewH
         return plist.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView pImage;
         TextView pName;

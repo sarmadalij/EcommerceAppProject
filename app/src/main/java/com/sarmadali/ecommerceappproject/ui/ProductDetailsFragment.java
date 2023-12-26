@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,14 +24,12 @@ import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.LoginActivity;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
-import com.sarmadali.ecommerceappproject.SignUpActivity;
 import com.sarmadali.ecommerceappproject.databinding.FragmentProductDetailsBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 import com.squareup.picasso.Picasso;
 
 
-public class ProductDetailsFragment extends Fragment
-        implements Dashboard.IOnBackPressed {
+public class ProductDetailsFragment extends Fragment implements Dashboard.IOnBackPressed {
 
     public ProductDetailsFragment() {
         // Required empty public constructor
@@ -40,9 +37,9 @@ public class ProductDetailsFragment extends Fragment
 
     FragmentProductDetailsBinding binding;
     FirebaseUser firebaseUser;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentProductDetailsBinding.inflate(inflater, container, false);
 
@@ -50,18 +47,16 @@ public class ProductDetailsFragment extends Fragment
         ProductDetails product = getArguments().getParcelable("product");
 
 
-        Uri  pImage = Uri.parse(product.getProductImageUri());
+        Uri pImage = Uri.parse(product.getProductImageUri());
 
-        Picasso.get().load(pImage)
-                .placeholder(R.drawable.placeholder)
-                .into(binding.productImg);
+        Picasso.get().load(pImage).placeholder(R.drawable.placeholder).into(binding.productImg);
 
         String name = product.getProductName();
         String pPrice = product.getProductPrice();
         String pDetail = product.getProductDescription();
 
         binding.ProductName.setText(name);
-        binding.productPricedetail.setText("Rs "+pPrice);
+        binding.productPricedetail.setText("Rs " + pPrice);
         binding.detailDescription.setText(pDetail);
 
         //increment button
@@ -93,9 +88,9 @@ public class ProductDetailsFragment extends Fragment
                 String pPrice = product.getProductPrice();
                 String pQuantity = binding.counterTextView.getText().toString();
 
-                int totalPrice =(Integer.parseInt(pPrice)*Integer.parseInt(pQuantity));
+                int totalPrice = (Integer.parseInt(pPrice) * Integer.parseInt(pQuantity));
 
-                ProductDetails cartProduct = new ProductDetails(pImage, pName,pCateg, pPrice, pQuantity, totalPrice);
+                ProductDetails cartProduct = new ProductDetails(pImage, pName, pCateg, pPrice, pQuantity, totalPrice);
 
                 String currentId;
                 DatabaseReference cartRef;
@@ -103,30 +98,24 @@ public class ProductDetailsFragment extends Fragment
                 //checks if user is signed in or not
                 if (user != null) {
                     currentId = firebaseUser.getUid();
-                    // Assuming you have a DatabaseReference reference initialized
-                    cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
-                            .child(currentId)
-                            .child("cartProducts");
+                    //DatabaseReference reference initialized
+                    cartRef = FirebaseDatabase.getInstance().getReference("userDetails").child(currentId).child("cartProducts");
 
-                    // Add the item to the cart
-                    cartRef.child(pName).setValue(cartProduct)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Toast.makeText(getContext(), "Product Add to Cart successfully", Toast.LENGTH_SHORT).show();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(getContext(), "Failed Add to Cart", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                    //Add the item to the cart
+                    cartRef.child(pName).setValue(cartProduct).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(getContext(), "Product Add to Cart successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "Failed Add to Cart", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                     CartUser cartUser = new CartUser();
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.nav_host_fragment_activity_dashboard, cartUser)
-                            .commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_activity_dashboard, cartUser).commit();
 
                 } else {
                     showDialog();
@@ -155,7 +144,7 @@ public class ProductDetailsFragment extends Fragment
         }
     }
 
-    private void showDialog(){
+    private void showDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
 
         // Setting Dialog Title
@@ -169,7 +158,7 @@ public class ProductDetailsFragment extends Fragment
 
         // Setting Positive "Yes" Button
         alertDialog.setPositiveButton("Login", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog,int which) {
+            public void onClick(DialogInterface dialog, int which) {
 
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
@@ -193,9 +182,7 @@ public class ProductDetailsFragment extends Fragment
 
         // Go back to the default fragment
         DashboardFragment defaultFragment = new DashboardFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
-                .commit();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment).commit();
 
         return true;
     }

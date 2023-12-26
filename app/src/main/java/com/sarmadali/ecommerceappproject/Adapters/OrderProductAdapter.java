@@ -58,11 +58,12 @@ public class OrderProductAdapter extends RecyclerView.Adapter<OrderProductAdapte
 
 
     //view holder class
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView pImage;
         TextView pName;
         TextView pQuantity;
+
         //constructor
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

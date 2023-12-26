@@ -50,7 +50,7 @@ public class CategoryImagesAdapter extends RecyclerView.Adapter<CategoryImagesAd
     }
 
     //view holder class
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView cImage;
         TextView cName;

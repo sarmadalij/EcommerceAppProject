@@ -16,13 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder>{
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     ArrayList<ProductDetails> plist;
     Context context;
     private OnItemClickListener listener;
+
     public ProductAdapter(ArrayList<ProductDetails> plist, Context context, OnItemClickListener listener) {
         this.plist = plist;
         this.context = context;
@@ -31,10 +33,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public ProductAdapter() {
-    }
-
-    public ProductAdapter(Context context) {
-        this.context = context;
     }
 
     @NonNull
@@ -98,6 +96,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public interface OnItemClickListener {
         void onItemClick(ProductDetails product);
     }
+
     public void setDataList(ArrayList<ProductDetails> newDataList) {
         this.plist = newDataList;
         notifyDataSetChanged();

@@ -17,8 +17,7 @@ import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 
 public class NoUserAccount extends Fragment
-        implements Dashboard.IOnBackPressed
-{
+        implements Dashboard.IOnBackPressed {
 
 
     public NoUserAccount() {
@@ -26,6 +25,7 @@ public class NoUserAccount extends Fragment
     }
 
     FragmentNoUserAccountBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,8 +51,8 @@ public class NoUserAccount extends Fragment
 
     @Override
     public boolean onBackPressed() {
-        // Handle back button press in your fragment
-        // Go back to the default fragment in your case
+        // Handle back button press in fragment
+        // Go back to the default fragment
         DashboardFragment defaultFragment = new DashboardFragment();
 
         getActivity().getSupportFragmentManager().beginTransaction()

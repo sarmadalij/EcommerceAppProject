@@ -1,13 +1,8 @@
 package com.sarmadali.ecommerceappproject;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +27,6 @@ import com.sarmadali.ecommerceappproject.ui.ProductDetailsFragment;
 import com.sarmadali.ecommerceappproject.ui.SearchFragment;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
-
 public class Dashboard extends AppCompatActivity implements ProductAdapter.OnItemClickListener {
 
     private ActivityDashboardBinding binding;
@@ -45,27 +39,18 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-         //default nav starts
+        //default nav starts
         BottomNavigationView navView = findViewById(R.id.bottomnav);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-//                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_dashboard);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(binding.navView, navController);
 
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 //dashboard
-                if (item.getItemId() == R.id.navigation_dashboard)
-                {
+                if (item.getItemId() == R.id.navigation_dashboard) {
                     DashboardFragment dashboardFragment = new DashboardFragment();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment_activity_dashboard , dashboardFragment);
+                    transaction.replace(R.id.nav_host_fragment_activity_dashboard, dashboardFragment);
                     transaction.commit();
 
                     resetToolbar();
@@ -75,25 +60,24 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
                     SearchFragment searchFragment = new SearchFragment();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment_activity_dashboard , searchFragment);
+                    transaction.replace(R.id.nav_host_fragment_activity_dashboard, searchFragment);
                     transaction.commit();
                 }
                 //my carts
-                else if (item.getItemId() == R.id.navigation_mycarts)
-                {
+                else if (item.getItemId() == R.id.navigation_mycarts) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user != null) {
                         // User is signed in
                         CartUser myCartsFragment = new CartUser();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , myCartsFragment);
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard, myCartsFragment);
                         transaction.commit();
 
                     } else {
                         // No user is signed in
                         EmptyCart myCartsFragment = new EmptyCart();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , myCartsFragment);
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard, myCartsFragment);
                         transaction.commit();
 
                     }
@@ -107,14 +91,14 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
                         // User is signed in
                         AccountUser accountUser = new AccountUser();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , accountUser);
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard, accountUser);
                         transaction.commit();
 
                     } else {
                         // No user is signed in
                         NoUserAccount accountUser = new NoUserAccount();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.nav_host_fragment_activity_dashboard , accountUser);
+                        transaction.replace(R.id.nav_host_fragment_activity_dashboard, accountUser);
                         transaction.commit();
                     }
                 }
@@ -160,6 +144,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
     //for fragment back pressed
     private BottomNavigationView bottomNavigationView;
+
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_dashboard);
@@ -178,7 +163,7 @@ public class Dashboard extends AppCompatActivity implements ProductAdapter.OnIte
 
             bottomNavigationView.setSelectedItemId(R.id.navigation_dashboard);
 
-        }  else {
+        } else {
             super.onBackPressed();
         }
 

@@ -22,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Adapters.CheckOutAdapter;
-import com.sarmadali.ecommerceappproject.Adapters.MyCartAdapter;
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.OrderProducts;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
@@ -34,7 +33,6 @@ import java.util.ArrayList;
 
 public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPressed {
 
-
     public CheckOutFragment() {
         // Required empty public constructor
     }
@@ -44,6 +42,7 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
     FirebaseUser firebaseUser;
     private CheckOutAdapter pAdapter;
     int subTotal, taxCharges, deliveryCharges, total;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,10 +60,9 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         String currentId = firebaseUser.getUid();
 
-        // Assuming you have a DatabaseReference reference initialized
+        //DatabaseReference reference initialized
         DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
                 .child(currentId).child("cartProducts");
-
 
         cartRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,18 +77,18 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
 
                 checkOutBinding.subTotalCheckOut.setText(String.valueOf(subTotal));
 
-                taxCharges = (int) (subTotal*0.08);
+                taxCharges = (int) (subTotal * 0.08);
 
                 checkOutBinding.taxCheckOut.setText(String.valueOf(taxCharges));
 
                 deliveryCharges = Integer.parseInt(checkOutBinding.deliveryCheckOut.getText().toString());
-                total = subTotal+taxCharges+deliveryCharges;
+                total = subTotal + taxCharges + deliveryCharges;
 
                 checkOutBinding.grandTotalCheckOut.setText(String.valueOf(total));
 
 
                 pAdapter = new CheckOutAdapter(getContext(), plist);
-                if (pAdapter != null){
+                if (pAdapter != null) {
                     checkOutBinding.checkOutRecyclerview.setAdapter(pAdapter);
                 }
                 pAdapter.notifyDataSetChanged();
@@ -119,19 +117,11 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
 
                 ProductDetails productDetails = new ProductDetails();
 
-                String productOrderImage = productDetails.getProductImageUri();
-                String productOrderName = productDetails.getProductName();
-                String productOrderQuantity = productDetails.getProductQuantity();
-
                 String totalOrderPrice = checkOutBinding.grandTotalCheckOut.getText().toString();
 
                 //for order user info and price
                 OrderProducts orderProducts = new OrderProducts(userOrderName, userOrderEmail, userOrderPhone,
                         userOrderBillingAddress, totalOrderPrice);
-
-                //for order products info
-//                OrderProducts orderProductsDetails = new OrderProducts(productOrderImage, productOrderName,
-//                        productOrderQuantity);
 
                 String currentId;
                 DatabaseReference cartRef;
@@ -156,12 +146,11 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
                     return; // Stop execution
                 }
 
-
                 //checks if user is signed in or not
                 if (user != null) {
 
                     currentId = firebaseUser.getUid();
-                    // Assuming you have a DatabaseReference reference initialized
+                    //DatabaseReference reference initialized
                     cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
                             .child(currentId)
                             .child("OrderPlaced");
@@ -173,7 +162,7 @@ public class CheckOutFragment extends Fragment implements Dashboard.IOnBackPress
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(getContext(), "Order Placed successfully", Toast.LENGTH_SHORT).show();
 
-                                    for (ProductDetails products : plist){
+                                    for (ProductDetails products : plist) {
                                         cartRef.child(uploadId).child("Products").child(products.getProductName())
                                                 .setValue(products);
                                     }

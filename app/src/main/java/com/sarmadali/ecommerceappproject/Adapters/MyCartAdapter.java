@@ -19,18 +19,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
-import com.sarmadali.ecommerceappproject.ui.CartUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder>{
+public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder> {
 
     ArrayList<ProductDetails> plist;
     Context context;
     private FirebaseUser firebaseUser;
 
-    int holderTotal=0;
+    int holderTotal = 0;
+
     //constructor
     public MyCartAdapter(ArrayList<ProductDetails> plist, Context context) {
         this.plist = plist;
@@ -59,7 +59,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
         int productQuantity = Integer.parseInt(quantity);
 
-        int total = (productPrice*productQuantity);
+        int total = (productPrice * productQuantity);
 
         String totalPrice = String.valueOf(total);
 
@@ -81,7 +81,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
                 int productPrice = Integer.parseInt(productModel.getProductPrice());
                 int productQuantity = quant[0];
 
-                int total = (productPrice*productQuantity);
+                int total = (productPrice * productQuantity);
 
                 String totalPrice = String.valueOf(total);
 
@@ -106,7 +106,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
                     int productPrice = Integer.parseInt(productModel.getProductPrice());
                     int productQuantity = quant[0];
 
-                    int total = (productPrice*productQuantity);
+                    int total = (productPrice * productQuantity);
 
                     String totalPrice = String.valueOf(total);
 
@@ -130,14 +130,14 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
 
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
-                    // Assuming your data list is of type List<YourDataType>
+
                     ProductDetails selectedItem = plist.get(position);
 
                     holderTotal = selectedItem.getTotalProductPrice();
-                    // Assuming you have a unique document ID for each item
+
                     firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                     String currentId = firebaseUser.getUid();
-                    // Assuming you have a DatabaseReference reference initialized
+                    // DatabaseReference reference initialized
                     DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("userDetails")
                             .child(currentId)
                             .child("cartProducts");
@@ -167,7 +167,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     }
 
     //view holder class
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView pImage;
         TextView pName;

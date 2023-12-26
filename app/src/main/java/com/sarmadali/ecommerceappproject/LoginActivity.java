@@ -14,19 +14,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.sarmadali.ecommerceappproject.Seller.UploadProducts;
 import com.sarmadali.ecommerceappproject.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-       //register text to move to the the sign up
+
+        //register text to move to the the sign up
         binding.registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

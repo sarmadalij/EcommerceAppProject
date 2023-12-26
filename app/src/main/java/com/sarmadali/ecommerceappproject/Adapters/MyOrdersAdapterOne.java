@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sarmadali.ecommerceappproject.Models.OrderProducts;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
 import com.sarmadali.ecommerceappproject.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyOrdersAdapterOne extends RecyclerView.Adapter<MyOrdersAdapterOne.ViewHolder> {
 
@@ -35,6 +32,7 @@ public class MyOrdersAdapterOne extends RecyclerView.Adapter<MyOrdersAdapterOne.
         this.pplist = orderList;
         notifyDataSetChanged(); // Notify the adapter that the data set has changed
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,7 +45,7 @@ public class MyOrdersAdapterOne extends RecyclerView.Adapter<MyOrdersAdapterOne.
 
         OrderProducts orderProducts = plist.get(position);
 
-        // Bind order details to the views in your order item layout
+        // Bind order details to the views in order item layout
         holder.bindOrderDetails(orderProducts);
 
         // Bind product details to the RecyclerView within the order item layout
@@ -82,7 +80,7 @@ public class MyOrdersAdapterOne extends RecyclerView.Adapter<MyOrdersAdapterOne.
             textViewOrderTotal = itemView.findViewById(R.id.textViewTotal);
 
             recyclerViewProducts = itemView.findViewById(R.id.recyclerViewProducts);
-            productAdapter = new OrderProductAdapter(context);  // Create a separate adapter for products
+            productAdapter = new OrderProductAdapter(context);  // Created a separate adapter for products
 
             // Set up RecyclerView for products
             recyclerViewProducts.setLayoutManager(new LinearLayoutManager(itemView.getContext()));

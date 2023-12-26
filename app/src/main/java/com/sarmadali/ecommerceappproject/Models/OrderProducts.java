@@ -10,7 +10,8 @@ public class OrderProducts {
     String productOrderName;
     String productOrderQuantity;
 
-    private ArrayList<ProductDetails> productList;  // Add this line
+    private ArrayList<ProductDetails> productList;
+
     public ArrayList<ProductDetails> getProductList() {
         return productList;
     }

@@ -17,7 +17,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.sarmadali.ecommerceappproject.Adapters.CheckOutAdapter;
 import com.sarmadali.ecommerceappproject.Adapters.MyOrdersAdapterOne;
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.OrderProducts;
@@ -28,7 +27,7 @@ import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
 
-public class FragmentMyOrders extends Fragment  implements Dashboard.IOnBackPressed{
+public class FragmentMyOrders extends Fragment implements Dashboard.IOnBackPressed {
 
     public FragmentMyOrders() {
         // Required empty public constructor
@@ -67,7 +66,7 @@ public class FragmentMyOrders extends Fragment  implements Dashboard.IOnBackPres
                     OrderProducts orderProducts = orderSnapshot.getValue(OrderProducts.class);
                     plist.add(orderProducts);
 
-                    productlist =  new ArrayList<>();
+                    productlist = new ArrayList<>();
                     DataSnapshot productsSnapshot = orderSnapshot.child("Products");
                     for (DataSnapshot productSnapshot : productsSnapshot.getChildren()) {
                         ProductDetails product = productSnapshot.getValue(ProductDetails.class);
@@ -96,7 +95,7 @@ public class FragmentMyOrders extends Fragment  implements Dashboard.IOnBackPres
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         myOrdersBinding.myOrdersRecyclerView.setLayoutManager(linearLayoutManager);
-            //my order products ends
+        //my order products ends
 
         return myOrdersBinding.getRoot();
     }

@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,7 +16,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,9 +26,9 @@ import com.sarmadali.ecommerceappproject.Adapters.ProductAdapter;
 import com.sarmadali.ecommerceappproject.Dashboard;
 import com.sarmadali.ecommerceappproject.Models.CategoryModel;
 import com.sarmadali.ecommerceappproject.Models.ProductDetails;
-
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.databinding.FragmentDashboardBinding;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,7 +39,6 @@ public class DashboardFragment extends Fragment {
     private DatabaseReference refDatabase;
     private ArrayList<ProductDetails> plist;
     private ProductAdapter pAdapter;
-//    private ProductAdapter adapter;
 
     public DashboardFragment() {
         //Required empty public constructor
@@ -83,11 +78,10 @@ public class DashboardFragment extends Fragment {
         cList.add(new CategoryModel(R.drawable.categoryf, "Men's \nKurta"));
 
 
-
         CategoryImagesAdapter adapter = new CategoryImagesAdapter(cList, getContext());
 
-        if (adapter != null && binding != null){
-        binding.recyclerviewCategory.setAdapter(adapter);
+        if (adapter != null && binding != null) {
+            binding.recyclerviewCategory.setAdapter(adapter);
         }
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -95,7 +89,8 @@ public class DashboardFragment extends Fragment {
 
         //auto slide category starts
         final int time = 2000; // it's the delay time for sliding between items in recyclerview
-        //The LinearSnapHelper will snap the center of the target child view to the center of the attached RecyclerView
+        //The LinearSnapHelper will snap the center of the target child view to the center of the
+        // attached RecyclerView
         final LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
         linearSnapHelper.attachToRecyclerView(binding.recyclerviewCategory);
         final Timer timer = new Timer();
@@ -127,8 +122,7 @@ public class DashboardFragment extends Fragment {
                     ProductDetails productDetails = postSnapshot.getValue(ProductDetails.class);
                     plist.add(productDetails);
                 }
-                pAdapter = new ProductAdapter(plist, getContext(),  new ProductAdapter.OnItemClickListener()
-                {
+                pAdapter = new ProductAdapter(plist, getContext(), new ProductAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(ProductDetails product) {
 
@@ -138,9 +132,9 @@ public class DashboardFragment extends Fragment {
                     }
                 });
 
-                if (pAdapter != null && binding != null){
+                if (pAdapter != null && binding != null) {
 
-                binding.recyclerviewProducts.setAdapter(pAdapter);
+                    binding.recyclerviewProducts.setAdapter(pAdapter);
 
                 }
             }
@@ -159,11 +153,13 @@ public class DashboardFragment extends Fragment {
     }
 
     private ProductAdapter.OnItemClickListener listener;
+
     //to attach product detail page
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        // Perform your Fragment transaction or access the FragmentManager here
+
+        //to perform fragment transactions
 
         listener = (Dashboard) getActivity();
 

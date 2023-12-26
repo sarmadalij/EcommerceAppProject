@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private DatabaseReference fDatabaseRef;
     ActivitySignUpBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_PHOTO && resultCode == RESULT_OK
-                && data != null && data.getData() != null){
+                && data != null && data.getData() != null) {
             imageUri = data.getData();
 
             Picasso.get().load(imageUri).into(binding.profileImage);
@@ -96,22 +97,23 @@ public class SignUpActivity extends AppCompatActivity {
 
 
     //image chose option
-    private void chooseImage(){
+    private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_PHOTO);
     }
-    //add User data to Firebase
 
     // Show a ProgressDialog
     ProgressDialog progressDialog;
+
+    //add User data to Firebase
     private void addUserToFirebase() {
 
-        if (imageUri != null){
+        if (imageUri != null) {
 
-            StorageReference fileReference = fStorageRef.child(System.currentTimeMillis()+
-                    "."+getFileExtension(imageUri));
+            StorageReference fileReference = fStorageRef.child(System.currentTimeMillis() +
+                    "." + getFileExtension(imageUri));
 
             String name = binding.RegName.getText().toString();
             String email = binding.RegEmail.getText().toString();
@@ -211,9 +213,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                                                 Toast.makeText(SignUpActivity.this, "User Created Successfully",
                                                                         Toast.LENGTH_SHORT).show();
-                                                            }catch (Exception e){
-//                                                                Toast.makeText(SignUpActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
+                                                            } catch (Exception e) {
                                                                 binding.RegEmail.setError("Email already exists");
                                                             }
                                                             //to log out the user by default after registration
@@ -231,7 +231,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(SignUpActivity.this, "Error! "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignUpActivity.this, "Error! " + e.getMessage(), Toast.LENGTH_SHORT).show();
                                             progressDialog.dismiss();
                                         }
                                     })
@@ -270,7 +270,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //get file extension
-    private String getFileExtension(Uri uri){
+    private String getFileExtension(Uri uri) {
 
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();

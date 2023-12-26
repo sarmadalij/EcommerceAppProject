@@ -21,7 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sarmadali.ecommerceappproject.Dashboard;
-import com.sarmadali.ecommerceappproject.LoginActivity;
 import com.sarmadali.ecommerceappproject.Models.UsersModel;
 import com.sarmadali.ecommerceappproject.R;
 import com.sarmadali.ecommerceappproject.Seller.UploadProducts;
@@ -38,8 +37,8 @@ public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
     }
 
     private FirebaseUser fUser;
-
     FragmentAccountUserBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,8 +57,8 @@ public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
             @Override
             public void onClick(View v) {
 
-                Thread thread = new Thread(){
-                    public void run(){
+                Thread thread = new Thread() {
+                    public void run() {
                         try {
                             getActivity().runOnUiThread(new Runnable() {
                                 public void run() {
@@ -67,7 +66,7 @@ public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
                                 }
                             });
                             sleep(3000);
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                         } finally {
                             getActivity().runOnUiThread(new Runnable() {
@@ -88,17 +87,14 @@ public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
         });
         //sign out button ends
 
-
-
         //change title
         Dashboard activity = (Dashboard) getActivity();
         androidx.appcompat.widget.Toolbar toolbar = activity.findViewById(R.id.toolbar1);
         toolbar.setTitle("My Profile");
 
         //get data from firebase database
-
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (fUser != null){
+        if (fUser != null) {
             // Assuming you have a reference to your Firebase database
             DatabaseReference currentUserRef = FirebaseDatabase.getInstance().getReference()
                     .child("userDetails").child(fUser.getUid());
@@ -110,15 +106,15 @@ public class AccountUser extends Fragment implements Dashboard.IOnBackPressed {
                     UsersModel currentUserModel = snapshot.getValue(UsersModel.class);
                     if (currentUserModel != null) {
 
-                            Uri profileImage = Uri.parse(currentUserModel.getProfilePic());
-                            Picasso.get().load(profileImage).placeholder(R.drawable.user)
-                                    .into(binding.profileAccount);
+                        Uri profileImage = Uri.parse(currentUserModel.getProfilePic());
+                        Picasso.get().load(profileImage).placeholder(R.drawable.user)
+                                .into(binding.profileAccount);
 
-                            String profileName = currentUserModel.getUserName();
-                            binding.profileName.setText(profileName);
+                        String profileName = currentUserModel.getUserName();
+                        binding.profileName.setText(profileName);
 
-                            String profileEmail = currentUserModel.geteMail();
-                            binding.profileEmail.setText(profileEmail);
+                        String profileEmail = currentUserModel.geteMail();
+                        binding.profileEmail.setText(profileEmail);
 //                        }
                     }
                 }

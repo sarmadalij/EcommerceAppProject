@@ -29,7 +29,6 @@ public class UploadProducts extends AppCompatActivity {
     private ActivityUploadProductsBinding binding;
     private static final int PICK_PHOTO = 1;
     Uri imageUri;
-
     private StorageReference fStorageRef;
     private DatabaseReference fDatabaseRef;
 
@@ -60,8 +59,9 @@ public class UploadProducts extends AppCompatActivity {
         });
 
     }
+
     // for upload image
-    private void chooseImage(){
+    private void chooseImage() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -74,7 +74,7 @@ public class UploadProducts extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_PHOTO && resultCode == RESULT_OK
-        && data != null && data.getData() != null){
+                && data != null && data.getData() != null) {
             imageUri = data.getData();
 
             Picasso.get().load(imageUri).into(binding.uploadImage);
@@ -83,12 +83,12 @@ public class UploadProducts extends AppCompatActivity {
 
     //for image upload to firebase
 
-    private void uploadToFirebase(){
+    private void uploadToFirebase() {
 
-        if (imageUri != null){
+        if (imageUri != null) {
 
-            StorageReference fileReference = fStorageRef.child(System.currentTimeMillis()+
-                    "."+getFileExtension(imageUri));
+            StorageReference fileReference = fStorageRef.child(System.currentTimeMillis() +
+                    "." + getFileExtension(imageUri));
 
             fileReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -96,11 +96,7 @@ public class UploadProducts extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                             Toast.makeText(UploadProducts.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-
-
-
                             //store image uri and other data in database
-
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
@@ -142,7 +138,7 @@ public class UploadProducts extends AppCompatActivity {
     }
 
     //for extension of file
-    private String getFileExtension(Uri uri){
+    private String getFileExtension(Uri uri) {
 
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();

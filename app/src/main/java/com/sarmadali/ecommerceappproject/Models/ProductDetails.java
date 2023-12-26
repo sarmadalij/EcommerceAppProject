@@ -11,6 +11,7 @@ public class ProductDetails implements Parcelable {
     String productQuantity;
 
     int totalProductPrice;
+
     //empty constructor
     public ProductDetails() {
     }
@@ -29,7 +30,7 @@ public class ProductDetails implements Parcelable {
     //constructor for add to cart
 
     public ProductDetails(String productImageUri, String productName, String productCategory,
-                         String productPrice, String productQuantity,int totalProductPrice) {
+                          String productPrice, String productQuantity, int totalProductPrice) {
         this.productImageUri = productImageUri;
         this.productName = productName;
         this.productCategory = productCategory;

@@ -15,12 +15,12 @@ public class SplashScreen extends AppCompatActivity {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Thread thread = new Thread(){
-            public void run(){
+        Thread thread = new Thread() {
+            public void run() {
 
                 try {
-                    sleep(5000);
-                }catch (Exception e){
+                    sleep(2400);
+                } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
                     Intent intent = new Intent(SplashScreen.this, Dashboard.class);

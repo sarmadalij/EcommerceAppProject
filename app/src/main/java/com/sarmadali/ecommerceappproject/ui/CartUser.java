@@ -26,17 +26,14 @@ import com.sarmadali.ecommerceappproject.databinding.FragmentCartUserBinding;
 import com.sarmadali.ecommerceappproject.ui.dashboard.DashboardFragment;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class CartUser extends Fragment
-        implements Dashboard.IOnBackPressed
-{
+        implements Dashboard.IOnBackPressed {
 
 
     public CartUser() {
         // Required empty public constructor
     }
-
     FragmentCartUserBinding binding;
     private ArrayList<ProductDetails> plist;
     FirebaseUser firebaseUser;
@@ -62,7 +59,6 @@ public class CartUser extends Fragment
                 .child(currentId).child("cartProducts");
 
 
-
         cartRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,8 +76,8 @@ public class CartUser extends Fragment
 
                 pAdapter = new MyCartAdapter(plist, getContext());
 
-                if (pAdapter != null){
-                binding.cartRecyclerview.setAdapter(pAdapter);
+                if (pAdapter != null) {
+                    binding.cartRecyclerview.setAdapter(pAdapter);
                 }
                 pAdapter.notifyDataSetChanged();
             }
@@ -112,10 +108,10 @@ public class CartUser extends Fragment
     @Override
     public boolean onBackPressed() {
 
-            DashboardFragment defaultFragment = new DashboardFragment();
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
-                    .commit();
+        DashboardFragment defaultFragment = new DashboardFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.nav_host_fragment_activity_dashboard, defaultFragment)
+                .commit();
         return true;
     }
 }
