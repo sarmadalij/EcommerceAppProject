@@ -30,6 +30,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
     Context context;
     private FirebaseUser firebaseUser;
 
+    int holderTotal=0;
     //constructor
     public MyCartAdapter(ArrayList<ProductDetails> plist, Context context) {
         this.plist = plist;
@@ -100,7 +101,6 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
                     TextView quantityTextView = holder.pQuantity;
                     quantityTextView.setText(String.valueOf(quant[0]));
 
-                    //
                     holder.pQuantity.setText(String.valueOf(quant[0]));
 
                     int productPrice = Integer.parseInt(productModel.getProductPrice());
@@ -124,19 +124,17 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         holder.pPrice.setText(productModel.getProductPrice());
 
         //delete product
-
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                plist.clear();
+
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     // Assuming your data list is of type List<YourDataType>
                     ProductDetails selectedItem = plist.get(position);
 
+                    holderTotal = selectedItem.getTotalProductPrice();
                     // Assuming you have a unique document ID for each item
-                    String documentId = selectedItem.getProductName(); // Replace with your actual document ID retrieval logic
-
                     firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                     String currentId = firebaseUser.getUid();
                     // Assuming you have a DatabaseReference reference initialized

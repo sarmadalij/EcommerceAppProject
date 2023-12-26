@@ -41,8 +41,7 @@ public class CartUser extends Fragment
     private ArrayList<ProductDetails> plist;
     FirebaseUser firebaseUser;
     private MyCartAdapter pAdapter;
-    int temp = 0;
-    int total;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +67,7 @@ public class CartUser extends Fragment
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 plist.clear();
-
+                int temp = 0;
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     ProductDetails productDetails = postSnapshot.getValue(ProductDetails.class);
 
