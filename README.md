@@ -50,6 +50,10 @@ The app includes a fully functional shopping cart with features such as adding, 
     
 Users can see his/her placed orders in the app.
 
+### 6. Upload Products
+    
+Users can upload products to the android app by clicking on the become a seller button.
+
 ## Requirements
 
 To run the E-Commerce Android APK in your Android device, ensure you meet the following requirements:
