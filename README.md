@@ -64,7 +64,7 @@ A stable internet connection is necessary for real-time features and data retrie
 
 ## App Screenshots
 
-<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">
+<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/search_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/product_details.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/restriction_on_add_to_cart.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/user_not_signedin_mycart.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/user_not_signed_in_myprofile.jpeg" alt="App Screenshot" width="250" height="500">
 
 
 ## Support and Feedback
