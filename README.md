@@ -62,11 +62,9 @@ To run the E-Commerce Android APK in your Android device, ensure you meet the fo
 
 A stable internet connection is necessary for real-time features and data retrieval.
 
-### App Screenshots
+## App Screenshots
 
-![App Screenshot](AppScreenshots/splashScreen.jpeg)
-
-<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="300" height="150">
+<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">
 
 
 ## Support and Feedback
