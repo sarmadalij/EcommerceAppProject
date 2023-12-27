@@ -22,11 +22,11 @@ The app is designed specifically for Android devices and may not be compatible w
 
 ### Network Dependency: 
 
-Some features, such as real-time order tracking, require a stable internet connection.
+Some features, such as logging in, creating acount, viewing products, add to cart, placing order, require a stable internet connection.
 
 ### Firebase Dependency: 
 
-The app relies on Firebase services for storage and database functionalities, necessitating a Firebase account and proper configuration.
+The app relies on Firebase services for storage and database functionalities.
 
 ## Main Features
 
@@ -46,30 +46,13 @@ A robust authentication system ensures the security of user accounts and persona
    
 The app includes a fully functional shopping cart with features such as adding, removing, and modifying items before checkout.
 
-### 5. Secure Transactions
+### . My Orders
     
-Built on Firebase, our app prioritizes the security of transactions, ensuring the safe handling of customer data.
-
-### 6. Order Tracking
-    
-Real-time order tracking keeps users informed about the status and location of their purchases.
-
-### 7. Wishlist
-    
-Users can create and manage wishlists for a personalized and streamlined shopping experience.
-
+Users can see his/her placed orders in the app.
 
 ## Requirements
 
-To run the E-Commerce Android App, ensure you meet the following requirements:
-
-### Android Studio: 
-
-Install the latest version of Android Studio.
-
-### Firebase Account: 
-
-Create a Firebase account and configure the app with the provided Firebase configuration files.
+To run the E-Commerce Android APK in your Android device, ensure you meet the following requirements:
 
 ### Internet Connection: 
 
