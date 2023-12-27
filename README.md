@@ -66,6 +66,9 @@ A stable internet connection is necessary for real-time features and data retrie
 
 ![App Screenshot](AppScreenshots/splashScreen.jpeg)
 
+<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="300" height="150">
+
+
 ## Support and Feedback
 
 We welcome your feedback and suggestions. If you encounter issues or have ideas for improvement, please open an issue on our GitHub repository. Thank you for choosing our E-Commerce App.
