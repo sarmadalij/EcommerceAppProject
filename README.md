@@ -58,10 +58,13 @@ Users can upload products to the android app by clicking on the become a seller 
 
 To run the E-Commerce Android APK in your Android device, ensure you meet the following requirements:
 
-### Internet Connection: 
+## Internet Connection: 
 
 A stable internet connection is necessary for real-time features and data retrieval.
 
+### App Screenshots
+
+![App Screenshot](AppScreenshots/splashScreen.jpeg)
 
 ## Support and Feedback
 
