@@ -46,7 +46,7 @@ A robust authentication system ensures the security of user accounts and persona
    
 The app includes a fully functional shopping cart with features such as adding, removing, and modifying items before checkout.
 
-### . My Orders
+### 5. My Orders
     
 Users can see his/her placed orders in the app.
 
