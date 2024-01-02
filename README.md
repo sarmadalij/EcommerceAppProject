@@ -64,7 +64,71 @@ A stable internet connection is necessary for real-time features and data retrie
 
 ## App Screenshots
 
-<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/search_products.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/product_details.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/restriction_on_add_to_cart.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/user_not_signedin_mycart.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/user_not_signed_in_myprofile.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/create_account.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/login.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/my_cart.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/checkout1.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/checkout2.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/confirm_order.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/my_profile.jpeg" alt="App Screenshot" width="250" height="500">      <img src="AppScreenshots/my_orders.jpeg" alt="App Screenshot" width="250" height="500">       <img src="AppScreenshots/upload_products.jpeg" alt="App Screenshot" width="250" height="500">
+##### Splash Screen/Welcome Screen
+
+<img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">
+
+##### Main Dashoard
+
+<img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">
+
+##### Product Display in Main Dashboard
+
+<img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">
+
+##### Search Products
+
+<img src="AppScreenshots/search_products.jpeg" alt="App Screenshot" width="250" height="500">  
+
+##### Product Detail Page
+
+<img src="AppScreenshots/product_details.jpeg" alt="App Screenshot" width="250" height="500">   
+
+##### Restriction on adding product to my cart because user is not logged in
+
+<img src="AppScreenshots/restriction_on_add_to_cart.jpeg" alt="App Screenshot" width="250" height="500"> 
+
+##### Cart Screen when user is not signed in
+
+<img src="AppScreenshots/user_not_signedin_mycart.jpeg" alt="App Screenshot" width="250" height="500">  
+
+##### My Profile Screen when user is not signed in
+
+<img src="AppScreenshots/user_not_signed_in_myprofile.jpeg" alt="App Screenshot" width="250" height="500">   
+
+##### Sign Up/Create Account Screen
+
+<img src="AppScreenshots/create_account.jpeg" alt="App Screenshot" width="250" height="500">   
+
+##### Login Screen
+
+<img src="AppScreenshots/login.jpeg" alt="App Screenshot" width="250" height="500"> 
+
+##### My Cart Screen When user is signed in
+
+<img src="AppScreenshots/my_cart.jpeg" alt="App Screenshot" width="250" height="500">   
+
+##### Check Out Screen 
+<img src="AppScreenshots/checkout1.jpeg" alt="App Screenshot" width="250" height="500">  
+
+##### Check Out Screen Part 2 - Order Summary
+
+<img src="AppScreenshots/checkout2.jpeg" alt="App Screenshot" width="250" height="500">     
+
+##### On Order Confirm
+
+<img src="AppScreenshots/confirm_order.jpeg" alt="App Screenshot" width="250" height="500">   
+
+##### My Profile Screen when user is signed in
+
+<img src="AppScreenshots/my_profile.jpeg" alt="App Screenshot" width="250" height="500">    
+
+##### My Order Screen - all orders 
+
+<img src="AppScreenshots/my_orders.jpeg" alt="App Screenshot" width="250" height="500">     
+
+##### Seller Option - Upload Products
+<img src="AppScreenshots/upload_products.jpeg" alt="App Screenshot" width="250" height="500">
 
 
 ## Support and Feedback
