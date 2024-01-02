@@ -63,73 +63,90 @@ To run the E-Commerce Android APK in your Android device, ensure you meet the fo
 A stable internet connection is necessary for real-time features and data retrieval.
 
 ## App Screenshots
-
-##### Splash Screen/Welcome Screen
-
+#####  <p align="center">Splash Screen/Welcome Screen</p>
+<p align="center">
 <img src="AppScreenshots/splashScreen.jpeg" alt="App Screenshot" width="250" height="500">
+</p>
 
-##### Main Dashoard
-
+##### <p align="center">Main Dashoard</p>
+<p align="center">
 <img src="AppScreenshots/main_dashboard.jpeg" alt="App Screenshot" width="250" height="500">
+</p>
 
-##### Product Display in Main Dashboard
-
+##### <p align="center">Product Display in Main Dashboard</p>
+<p align="center">
 <img src="AppScreenshots/dashboard_products.jpeg" alt="App Screenshot" width="250" height="500">
+</p>
 
-##### Search Products
+##### <p align="center">Search Products</p>
+<p align="center">
+<img src="AppScreenshots/search_products.jpeg" alt="App Screenshot" width="250" height="500"> 
+</p>   
 
-<img src="AppScreenshots/search_products.jpeg" alt="App Screenshot" width="250" height="500">  
-
-##### Product Detail Page
-
+##### <p align="center">Product Detail Page</p>
+<p align="center">
 <img src="AppScreenshots/product_details.jpeg" alt="App Screenshot" width="250" height="500">   
+</p>
 
-##### Restriction on adding product to my cart because user is not logged in
-
+##### <p align="center">Restriction on adding product to my cart because user is not logged in</p>
+<p align="center">
 <img src="AppScreenshots/restriction_on_add_to_cart.jpeg" alt="App Screenshot" width="250" height="500"> 
+</p>
 
-##### Cart Screen when user is not signed in
-
+##### <p align="center">Cart Screen when user is not signed in</p>
+<p align="center">
 <img src="AppScreenshots/user_not_signedin_mycart.jpeg" alt="App Screenshot" width="250" height="500">  
+</p>
 
-##### My Profile Screen when user is not signed in
-
+##### <p align="center">My Profile Screen when user is not signed in</p>
+<p align="center">
 <img src="AppScreenshots/user_not_signed_in_myprofile.jpeg" alt="App Screenshot" width="250" height="500">   
+</p>
 
-##### Sign Up/Create Account Screen
-
+##### <p align="center">Sign Up/Create Account Screen</p>
+<p align="center">
 <img src="AppScreenshots/create_account.jpeg" alt="App Screenshot" width="250" height="500">   
+</p>
 
-##### Login Screen
-
+##### <p align="center">Login Screen</p>
+<p align="center">
 <img src="AppScreenshots/login.jpeg" alt="App Screenshot" width="250" height="500"> 
+</p>
 
-##### My Cart Screen When user is signed in
-
+##### <p align="center">My Cart Screen When user is signed in</p>
+<p align="center">
 <img src="AppScreenshots/my_cart.jpeg" alt="App Screenshot" width="250" height="500">   
+</p>
 
-##### Check Out Screen 
+##### <p align="center">Check Out Screen</p>
+<p align="center">
 <img src="AppScreenshots/checkout1.jpeg" alt="App Screenshot" width="250" height="500">  
+</p>
 
-##### Check Out Screen Part 2 - Order Summary
-
+##### <p align="center">Check Out Screen Part 2 - Order Summary</p>
+<p align="center">
 <img src="AppScreenshots/checkout2.jpeg" alt="App Screenshot" width="250" height="500">     
+</p>
 
-##### On Order Confirm
-
+##### <p align="center">On Order Confirm</p>
+<p align="center">
 <img src="AppScreenshots/confirm_order.jpeg" alt="App Screenshot" width="250" height="500">   
+</p>
 
-##### My Profile Screen when user is signed in
-
+##### <p align="center">My Profile Screen when user is signed in</p>
+<p align="center">
 <img src="AppScreenshots/my_profile.jpeg" alt="App Screenshot" width="250" height="500">    
+</p>
 
-##### My Order Screen - all orders 
-
+##### <p align="center">My Order Screen - all orders</p> 
+<p align="center">
 <img src="AppScreenshots/my_orders.jpeg" alt="App Screenshot" width="250" height="500">     
+</p>
 
-##### Seller Option - Upload Products
+##### <p align="center">Seller Option - Upload Products</p>
+<p align="center">
 <img src="AppScreenshots/upload_products.jpeg" alt="App Screenshot" width="250" height="500">
-
+</p>
 
 ## Support and Feedback
 
